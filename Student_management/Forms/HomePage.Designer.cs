@@ -39,32 +39,32 @@
             button3 = new Button();
             groupBox1 = new GroupBox();
             groupBox4 = new GroupBox();
-            textBox11 = new TextBox();
+            txtParentNumber = new TextBox();
             label14 = new Label();
             textBox8 = new TextBox();
             label11 = new Label();
-            textBox9 = new TextBox();
+            txtNic = new TextBox();
             label12 = new Label();
-            textBox10 = new TextBox();
+            txtParentName = new TextBox();
             label13 = new Label();
             groupBox3 = new GroupBox();
-            textBox7 = new TextBox();
+            txtHome = new TextBox();
             label8 = new Label();
-            textBox6 = new TextBox();
+            txtMobile = new TextBox();
             label7 = new Label();
-            textBox4 = new TextBox();
+            txtEmail = new TextBox();
             label9 = new Label();
-            textBox5 = new TextBox();
+            txtAddresses = new TextBox();
             label10 = new Label();
             groupBox2 = new GroupBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            radioFemale = new RadioButton();
+            radioMale = new RadioButton();
             label6 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            txtBirthOfDate = new DateTimePicker();
             label5 = new Label();
-            textBox3 = new TextBox();
+            txtLastName = new TextBox();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtFirstName = new TextBox();
             label3 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
@@ -104,6 +104,7 @@
             button2.TabIndex = 4;
             button2.Text = "Logout";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -122,7 +123,7 @@
             label1.BackColor = Color.DodgerBlue;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(224, 224, 224);
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(1782, 51);
@@ -133,7 +134,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.DarkGray;
+            panel2.BackColor = Color.Silver;
             panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -205,13 +206,13 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(textBox11);
+            groupBox4.Controls.Add(txtParentNumber);
             groupBox4.Controls.Add(label14);
             groupBox4.Controls.Add(textBox8);
             groupBox4.Controls.Add(label11);
-            groupBox4.Controls.Add(textBox9);
+            groupBox4.Controls.Add(txtNic);
             groupBox4.Controls.Add(label12);
-            groupBox4.Controls.Add(textBox10);
+            groupBox4.Controls.Add(txtParentName);
             groupBox4.Controls.Add(label13);
             groupBox4.Location = new Point(23, 593);
             groupBox4.Name = "groupBox4";
@@ -220,13 +221,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Parent Details";
             // 
-            // textBox11
+            // txtParentNumber
             // 
-            textBox11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox11.Location = new Point(177, 123);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(267, 27);
-            textBox11.TabIndex = 12;
+            txtParentNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtParentNumber.Location = new Point(177, 123);
+            txtParentNumber.Name = "txtParentNumber";
+            txtParentNumber.Size = new Size(267, 27);
+            txtParentNumber.TabIndex = 12;
             // 
             // label14
             // 
@@ -257,13 +258,13 @@
             label11.TabIndex = 9;
             label11.Text = "Registration No";
             // 
-            // textBox9
+            // txtNic
             // 
-            textBox9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox9.Location = new Point(177, 80);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(267, 27);
-            textBox9.TabIndex = 8;
+            txtNic.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtNic.Location = new Point(177, 80);
+            txtNic.Name = "txtNic";
+            txtNic.Size = new Size(267, 27);
+            txtNic.TabIndex = 8;
             // 
             // label12
             // 
@@ -276,13 +277,13 @@
             label12.TabIndex = 7;
             label12.Text = "NIC";
             // 
-            // textBox10
+            // txtParentName
             // 
-            textBox10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox10.Location = new Point(177, 38);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(267, 27);
-            textBox10.TabIndex = 6;
+            txtParentName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtParentName.Location = new Point(177, 38);
+            txtParentName.Name = "txtParentName";
+            txtParentName.Size = new Size(267, 27);
+            txtParentName.TabIndex = 6;
             // 
             // label13
             // 
@@ -297,13 +298,13 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox7);
+            groupBox3.Controls.Add(txtHome);
             groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(textBox6);
+            groupBox3.Controls.Add(txtMobile);
             groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(txtEmail);
             groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(txtAddresses);
             groupBox3.Controls.Add(label10);
             groupBox3.Location = new Point(23, 326);
             groupBox3.Name = "groupBox3";
@@ -312,13 +313,13 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Contact Details";
             // 
-            // textBox7
+            // txtHome
             // 
-            textBox7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox7.Location = new Point(177, 189);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(267, 27);
-            textBox7.TabIndex = 10;
+            txtHome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtHome.Location = new Point(177, 189);
+            txtHome.Name = "txtHome";
+            txtHome.Size = new Size(267, 27);
+            txtHome.TabIndex = 10;
             // 
             // label8
             // 
@@ -331,13 +332,13 @@
             label8.TabIndex = 9;
             label8.Text = "Home Phone";
             // 
-            // textBox6
+            // txtMobile
             // 
-            textBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox6.Location = new Point(177, 146);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(267, 27);
-            textBox6.TabIndex = 8;
+            txtMobile.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtMobile.Location = new Point(177, 146);
+            txtMobile.Name = "txtMobile";
+            txtMobile.Size = new Size(267, 27);
+            txtMobile.TabIndex = 8;
             // 
             // label7
             // 
@@ -350,13 +351,13 @@
             label7.TabIndex = 7;
             label7.Text = "Mobile Phone";
             // 
-            // textBox4
+            // txtEmail
             // 
-            textBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox4.Location = new Point(177, 104);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(267, 27);
-            textBox4.TabIndex = 6;
+            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtEmail.Location = new Point(177, 104);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(267, 27);
+            txtEmail.TabIndex = 6;
             // 
             // label9
             // 
@@ -369,15 +370,14 @@
             label9.TabIndex = 5;
             label9.Text = "Email";
             // 
-            // textBox5
+            // txtAddresses
             // 
-            textBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox5.Location = new Point(177, 37);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(267, 50);
-            textBox5.TabIndex = 4;
-            textBox5.TextChanged += txtAddress;
+            txtAddresses.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtAddresses.Location = new Point(177, 37);
+            txtAddresses.Multiline = true;
+            txtAddresses.Name = "txtAddresses";
+            txtAddresses.Size = new Size(267, 50);
+            txtAddresses.TabIndex = 4;
             // 
             // label10
             // 
@@ -392,14 +392,14 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(radioFemale);
+            groupBox2.Controls.Add(radioMale);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(dateTimePicker1);
+            groupBox2.Controls.Add(txtBirthOfDate);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(txtLastName);
             groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(txtFirstName);
             groupBox2.Controls.Add(label3);
             groupBox2.ForeColor = Color.Black;
             groupBox2.Location = new Point(23, 94);
@@ -410,33 +410,31 @@
             groupBox2.Text = "Basic Details";
             groupBox2.Enter += groupBox2_Enter;
             // 
-            // radioButton2
+            // radioFemale
             // 
-            radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radioButton2.AutoSize = true;
-            radioButton2.ForeColor = SystemColors.InfoText;
-            radioButton2.Location = new Point(327, 162);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(85, 23);
-            radioButton2.TabIndex = 11;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Female";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += txtFemale;
+            radioFemale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioFemale.AutoSize = true;
+            radioFemale.ForeColor = SystemColors.InfoText;
+            radioFemale.Location = new Point(327, 162);
+            radioFemale.Name = "radioFemale";
+            radioFemale.Size = new Size(85, 23);
+            radioFemale.TabIndex = 11;
+            radioFemale.TabStop = true;
+            radioFemale.Text = "Female";
+            radioFemale.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioMale
             // 
-            radioButton1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radioButton1.AutoSize = true;
-            radioButton1.ForeColor = SystemColors.InfoText;
-            radioButton1.Location = new Point(177, 164);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(65, 23);
-            radioButton1.TabIndex = 10;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Male";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += txtMale;
+            radioMale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioMale.AutoSize = true;
+            radioMale.ForeColor = SystemColors.InfoText;
+            radioMale.Location = new Point(177, 164);
+            radioMale.Name = "radioMale";
+            radioMale.Size = new Size(65, 23);
+            radioMale.TabIndex = 10;
+            radioMale.TabStop = true;
+            radioMale.Text = "Male";
+            radioMale.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -450,16 +448,15 @@
             label6.Text = "Gender";
             label6.Click += label6_Click;
             // 
-            // dateTimePicker1
+            // txtBirthOfDate
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePicker1.CalendarForeColor = Color.FromArgb(64, 64, 64);
-            dateTimePicker1.CalendarTitleForeColor = Color.FromArgb(64, 64, 64);
-            dateTimePicker1.Location = new Point(177, 119);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(267, 27);
-            dateTimePicker1.TabIndex = 8;
-            dateTimePicker1.ValueChanged += txtBirthOfDate;
+            txtBirthOfDate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtBirthOfDate.CalendarForeColor = Color.FromArgb(64, 64, 64);
+            txtBirthOfDate.CalendarTitleForeColor = Color.FromArgb(64, 64, 64);
+            txtBirthOfDate.Location = new Point(177, 119);
+            txtBirthOfDate.Name = "txtBirthOfDate";
+            txtBirthOfDate.Size = new Size(267, 27);
+            txtBirthOfDate.TabIndex = 8;
             // 
             // label5
             // 
@@ -472,14 +469,13 @@
             label5.TabIndex = 7;
             label5.Text = "Date of Birth";
             // 
-            // textBox3
+            // txtLastName
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Location = new Point(177, 79);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(267, 27);
-            textBox3.TabIndex = 6;
-            textBox3.TextChanged += txtLastName;
+            txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtLastName.Location = new Point(177, 79);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(267, 27);
+            txtLastName.TabIndex = 6;
             // 
             // label4
             // 
@@ -492,14 +488,13 @@
             label4.TabIndex = 5;
             label4.Text = "Last Name";
             // 
-            // textBox2
+            // txtFirstName
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(177, 37);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(267, 27);
-            textBox2.TabIndex = 4;
-            textBox2.TextChanged += txtFirstname;
+            txtFirstName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtFirstName.Location = new Point(177, 37);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(267, 27);
+            txtFirstName.TabIndex = 4;
             // 
             // label3
             // 
@@ -519,7 +514,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 1;
-            textBox1.TextChanged += reg_No;
+            textBox1.Text = "txtRegNo";
             // 
             // label2
             // 
@@ -535,7 +530,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.BackColor = SystemColors.Control;
             panel3.Controls.Add(dataGridView1);
             panel3.Location = new Point(549, 51);
             panel3.Name = "panel3";
@@ -594,32 +589,32 @@
         private Label label2;
         private TextBox textBox1;
         private GroupBox groupBox2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker txtBirthOfDate;
         private Label label5;
-        private TextBox textBox3;
+        private TextBox txtLastName;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox txtFirstName;
         private Label label3;
         private Label label6;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton radioFemale;
+        private RadioButton radioMale;
         private GroupBox groupBox3;
-        private TextBox textBox7;
+        private TextBox txtHome;
         private Label label8;
-        private TextBox textBox6;
+        private TextBox txtMobile;
         private Label label7;
-        private TextBox textBox4;
+        private TextBox txtEmail;
         private Label label9;
-        private TextBox textBox5;
+        private TextBox txtAddresses;
         private Label label10;
         private GroupBox groupBox4;
-        private TextBox textBox11;
+        private TextBox txtParentNumber;
         private Label label14;
         private TextBox textBox8;
         private Label label11;
-        private TextBox textBox9;
+        private TextBox txtNic;
         private Label label12;
-        private TextBox textBox10;
+        private TextBox txtParentName;
         private Label label13;
         private Button button6;
         private Button button5;

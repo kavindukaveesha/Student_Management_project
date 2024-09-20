@@ -39,7 +39,8 @@ namespace Student_management.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ManageAdmin manageAdmin = new ManageAdmin();
+            manageAdmin.Show();
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -52,25 +53,10 @@ namespace Student_management.Forms
 
         }
 
-        private void reg_No(object sender, EventArgs e)
-        {
 
-        }
 
-        private void txtFirstname(object sender, EventArgs e)
-        {
 
-        }
 
-        private void txtLastName(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBirthOfDate(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtMale(object sender, EventArgs e)
         {
@@ -85,6 +71,12 @@ namespace Student_management.Forms
         private void txtAddress(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            
         }
     }
 }

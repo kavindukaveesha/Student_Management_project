@@ -24,8 +24,7 @@ namespace Student_management.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Login successful!");
-
+            
             // Hide the current form (LoginForm)
             this.Hide();
 

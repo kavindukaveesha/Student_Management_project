@@ -1,0 +1,7 @@
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.Forms.HomePage.resources
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.csproj.GenerateResource.cache
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.AssemblyInfoInputs.cache
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.AssemblyInfo.cs
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.csproj.CoreCompileInputs.cache
+D:\SOFTWERE ENGENEERING\My-Projects\C#_Projects\Student_Management_project\Application\obj\Debug\net8.0-windows\Application.sourcelink.json

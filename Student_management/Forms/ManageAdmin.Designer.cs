@@ -110,6 +110,7 @@
             btnUpdateAdmin.TabIndex = 16;
             btnUpdateAdmin.Text = "Update";
             btnUpdateAdmin.UseVisualStyleBackColor = true;
+            btnUpdateAdmin.Click += btnUpdateAdmin_Click;
             // 
             // btnDelete
             // 
@@ -121,6 +122,7 @@
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnRegisterAdmin
             // 
@@ -132,6 +134,7 @@
             btnRegisterAdmin.TabIndex = 14;
             btnRegisterAdmin.Text = "Register";
             btnRegisterAdmin.UseVisualStyleBackColor = true;
+            btnRegisterAdmin.Click += btnRegisterAdmin_Click;
             // 
             // groupBox3
             // 

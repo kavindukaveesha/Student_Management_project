@@ -24,13 +24,44 @@ namespace Student_management.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            // Hide the current form (LoginForm)
-            this.Hide();
+            var loginsuccess = true;
+            try
+            {
+                if (loginsuccess)
+                {
+                    // Hide the current form (LoginForm)
+                    this.Hide();
 
-            // Open the HomePage form
-            HomePage homePage = new HomePage();
-            homePage.Show();
+                    MessageBox.Show(
+                   "Login Success!",
+                   "Success",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information
+                   );
+                    // Open the HomePage form
+                    HomePage homePage = new HomePage();
+                    homePage.Show();
+                }
+                else
+                {
+                    MessageBox.Show(
+                    "Invalid Username or password.Check again!",
+                    "Login Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+
+                }
+            }
+            catch(Exception ex) {
+                    MessageBox.Show(
+                    "Login Error!",
+                     "Login Error",
+                           MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                            );
+            }
+           
 
 
         }

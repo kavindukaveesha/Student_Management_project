@@ -155,6 +155,7 @@
             button6.TabIndex = 3;
             button6.Text = "Delete";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -176,6 +177,7 @@
             button4.TabIndex = 1;
             button4.Text = "Update";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -187,6 +189,7 @@
             button3.TabIndex = 0;
             button3.Text = "Register";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // groupBox1
             // 

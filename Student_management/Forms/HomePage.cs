@@ -76,7 +76,67 @@ namespace Student_management.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Are you sure, Do you really want to Delete this Student...?",
+            "Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    //try to delete student
+                    MessageBox.Show(
+                   "Student Deleted Successfully",
+                   "Delete Student",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information
+                   );
+
+
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(
+                    "Error in delete.check again",
+                    "Error!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                     );
+
+                }
+
+               
+            }
             
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+            "Student Added Successfully",
+            "Register Student",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information
+            );
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+           "Student Update Successfully",
+           "Update Student",
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Information
+           );
         }
     }
 }

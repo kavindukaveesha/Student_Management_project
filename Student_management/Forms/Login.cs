@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,51 @@ namespace Student_management.Forms
         {
 
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        
+                private void btnLogin_Click(object sender, EventArgs e)
         {
-            var loginsuccess = true;
+            var loginsuccess = false;
+
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            string loginQuery = "SELECT useid FROM Logins WHERE usename = @username AND password = @password";
+
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            {
+                try
+                {
+                    SqlCommand cmd = DBConn.getCommand(loginQuery);
+                   
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            int useid = reader.GetInt32(0);
+                            if (useid >= 0)
+                            {
+                                loginsuccess = true;
+                            }
+                        }
+                    
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("SQL Error: " + ex.Message);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+
+
             try
             {
                 if (loginsuccess)
@@ -51,6 +93,8 @@ namespace Student_management.Forms
                     MessageBoxIcon.Error
                     );
 
+                    txtUsername.Clear();
+                    txtPassword.Clear();
                 }
             }
             catch(Exception ex) {
@@ -68,7 +112,8 @@ namespace Student_management.Forms
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            txtUsername.Clear();
+            txtPassword.Clear();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

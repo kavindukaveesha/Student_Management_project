@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,39 @@ namespace Student_management.Forms
 {
     public partial class HomePage : Form
     {
+        int regNo {  get; set; }
+        string firstName { get; set; }
+        string lastName { get; set; }
+        DateTime dateOfBirth {get; set; }
+        string gender { get; set; }
+        string address { get; set; }
+        string email { get; set; }
+        int mobilePhone { get; set; }
+        int homePhone { get; set; }
+        string parentName { get; set; }
+        string nic { get; set; }
+        int contactNo { get; set; }
+        SqlDataReader reader { get; set; }
+
+        List<string> regNos = new List<string>();
+
         public HomePage()
         {
             InitializeComponent();
+
+            string query = "SELECT * FROM Registration";
+
+            SqlCommand cmd = DBConn.getCommand(query);
+
+            reader =  cmd.ExecuteReader();
+
+            while (reader.Read()) { 
+            
+            regNo.Add(reader.GetInt32(0));
+
+
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,6 +107,8 @@ namespace Student_management.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Login login = new Login();
+            login.Show();
 
         }
 
@@ -102,7 +135,8 @@ namespace Student_management.Forms
 
 
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show(
                     "Error in delete.check again",
                     "Error!",
@@ -112,9 +146,9 @@ namespace Student_management.Forms
 
                 }
 
-               
+
             }
-            
+
 
         }
 
@@ -137,6 +171,16 @@ namespace Student_management.Forms
            MessageBoxButtons.OK,
            MessageBoxIcon.Information
            );
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

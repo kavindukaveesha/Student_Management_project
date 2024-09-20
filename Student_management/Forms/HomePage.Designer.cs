@@ -33,6 +33,10 @@
             button1 = new Button();
             label1 = new Label();
             panel2 = new Panel();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
             groupBox1 = new GroupBox();
             groupBox4 = new GroupBox();
             textBox11 = new TextBox();
@@ -65,16 +69,15 @@
             textBox1 = new TextBox();
             label2 = new Label();
             panel3 = new Panel();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -129,7 +132,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.AppWorkspace;
+            panel2.BackColor = Color.DarkGray;
             panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -139,6 +142,53 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(550, 992);
             panel2.TabIndex = 3;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button6.Location = new Point(432, 846);
+            button6.Name = "button6";
+            button6.Size = new Size(100, 30);
+            button6.TabIndex = 3;
+            button6.Text = "Delete";
+            button6.UseVisualStyleBackColor = true;
+          //  button6.Click += btnDelete;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button5.Location = new Point(318, 846);
+            button5.Name = "button5";
+            button5.Size = new Size(100, 30);
+            button5.TabIndex = 2;
+            button5.Text = "Clear";
+            button5.UseVisualStyleBackColor = true;
+          //  button5.Click += btnClear;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button4.Location = new Point(124, 846);
+            button4.Name = "button4";
+            button4.Size = new Size(100, 30);
+            button4.TabIndex = 1;
+            button4.Text = "Update";
+            button4.UseVisualStyleBackColor = true;
+//button4.Click += btnUpdate;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(12, 846);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 30);
+            button3.TabIndex = 0;
+            button3.Text = "Register";
+            button3.UseVisualStyleBackColor = true;
+           // button3.Click += btnRegister;
             // 
             // groupBox1
             // 
@@ -171,7 +221,7 @@
             groupBox4.Size = new Size(470, 164);
             groupBox4.TabIndex = 13;
             groupBox4.TabStop = false;
-            groupBox4.Text = "groupBox4";
+            groupBox4.Text = "Parent Details";
             // 
             // textBox11
             // 
@@ -180,6 +230,7 @@
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(267, 27);
             textBox11.TabIndex = 12;
+            //textBox11.TextChanged += txtParentContact;
             // 
             // label14
             // 
@@ -188,9 +239,9 @@
             label14.ForeColor = Color.FromArgb(64, 64, 64);
             label14.Location = new Point(28, 126);
             label14.Name = "label14";
-            label14.Size = new Size(132, 19);
+            label14.Size = new Size(138, 19);
             label14.TabIndex = 11;
-            label14.Text = "Registration No";
+            label14.Text = "Contact Number";
             // 
             // textBox8
             // 
@@ -217,6 +268,7 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(267, 27);
             textBox9.TabIndex = 8;
+           // textBox9.TextChanged += txtNIC;
             // 
             // label12
             // 
@@ -225,9 +277,9 @@
             label12.ForeColor = Color.FromArgb(64, 64, 64);
             label12.Location = new Point(28, 83);
             label12.Name = "label12";
-            label12.Size = new Size(132, 19);
+            label12.Size = new Size(37, 19);
             label12.TabIndex = 7;
-            label12.Text = "Registration No";
+            label12.Text = "NIC";
             // 
             // textBox10
             // 
@@ -236,6 +288,7 @@
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(267, 27);
             textBox10.TabIndex = 6;
+           // textBox10.TextChanged += txtParentName;
             // 
             // label13
             // 
@@ -244,9 +297,9 @@
             label13.ForeColor = Color.FromArgb(64, 64, 64);
             label13.Location = new Point(28, 41);
             label13.Name = "label13";
-            label13.Size = new Size(132, 19);
+            label13.Size = new Size(110, 19);
             label13.TabIndex = 5;
-            label13.Text = "Registration No";
+            label13.Text = "Parent Name";
             // 
             // groupBox3
             // 
@@ -263,7 +316,7 @@
             groupBox3.Size = new Size(470, 240);
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
+            groupBox3.Text = "Contact Details";
             // 
             // textBox7
             // 
@@ -272,6 +325,7 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(267, 27);
             textBox7.TabIndex = 10;
+           // textBox7.TextChanged += txtHomePhone;
             // 
             // label8
             // 
@@ -280,9 +334,9 @@
             label8.ForeColor = Color.FromArgb(64, 64, 64);
             label8.Location = new Point(28, 192);
             label8.Name = "label8";
-            label8.Size = new Size(132, 19);
+            label8.Size = new Size(109, 19);
             label8.TabIndex = 9;
-            label8.Text = "Registration No";
+            label8.Text = "Home Phone";
             // 
             // textBox6
             // 
@@ -291,6 +345,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(267, 27);
             textBox6.TabIndex = 8;
+           // textBox6.TextChanged += txtmobilePhone;
             // 
             // label7
             // 
@@ -299,9 +354,9 @@
             label7.ForeColor = Color.FromArgb(64, 64, 64);
             label7.Location = new Point(28, 149);
             label7.Name = "label7";
-            label7.Size = new Size(132, 19);
+            label7.Size = new Size(114, 19);
             label7.TabIndex = 7;
-            label7.Text = "Registration No";
+            label7.Text = "Mobile Phone";
             // 
             // textBox4
             // 
@@ -310,6 +365,7 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(267, 27);
             textBox4.TabIndex = 6;
+          //  textBox4.TextChanged += txtEmail;
             // 
             // label9
             // 
@@ -318,9 +374,9 @@
             label9.ForeColor = Color.FromArgb(64, 64, 64);
             label9.Location = new Point(28, 107);
             label9.Name = "label9";
-            label9.Size = new Size(132, 19);
+            label9.Size = new Size(51, 19);
             label9.TabIndex = 5;
-            label9.Text = "Registration No";
+            label9.Text = "Email";
             // 
             // textBox5
             // 
@@ -330,17 +386,18 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(267, 50);
             textBox5.TabIndex = 4;
+            textBox5.TextChanged += txtAddress;
             // 
             // label10
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.ForeColor = Color.FromArgb(64, 64, 64);
-            label10.Location = new Point(28, 40);
+            label10.Location = new Point(28, 51);
             label10.Name = "label10";
-            label10.Size = new Size(132, 19);
+            label10.Size = new Size(74, 19);
             label10.TabIndex = 3;
-            label10.Text = "Registration No";
+            label10.Text = "Address";
             // 
             // groupBox2
             // 
@@ -366,6 +423,7 @@
             // 
             radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButton2.AutoSize = true;
+            radioButton2.ForeColor = SystemColors.InfoText;
             radioButton2.Location = new Point(327, 162);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(85, 23);
@@ -379,6 +437,7 @@
             // 
             radioButton1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButton1.AutoSize = true;
+            radioButton1.ForeColor = SystemColors.InfoText;
             radioButton1.Location = new Point(177, 164);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(65, 23);
@@ -486,48 +545,21 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.Controls.Add(dataGridView1);
             panel3.Location = new Point(549, 51);
             panel3.Name = "panel3";
             panel3.Size = new Size(1233, 902);
             panel3.TabIndex = 4;
             // 
-            // button3
+            // dataGridView1
             // 
-            button3.Location = new Point(12, 846);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 0;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(124, 846);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 1;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.Location = new Point(324, 846);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 2;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button6.Location = new Point(438, 846);
-            button6.Name = "button6";
-            button6.Size = new Size(94, 29);
-            button6.TabIndex = 3;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(20, 37);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1201, 839);
+            dataGridView1.TabIndex = 0;
             // 
             // HomePage
             // 
@@ -553,6 +585,8 @@
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -600,5 +634,6 @@
         private Button button5;
         private Button button4;
         private Button button3;
+        private DataGridView dataGridView1;
     }
 }

@@ -119,6 +119,7 @@
             // 
             // label1
             // 
+            label1.BackColor = Color.DodgerBlue;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(224, 224, 224);
@@ -153,7 +154,6 @@
             button6.TabIndex = 3;
             button6.Text = "Delete";
             button6.UseVisualStyleBackColor = true;
-          //  button6.Click += btnDelete;
             // 
             // button5
             // 
@@ -165,7 +165,6 @@
             button5.TabIndex = 2;
             button5.Text = "Clear";
             button5.UseVisualStyleBackColor = true;
-          //  button5.Click += btnClear;
             // 
             // button4
             // 
@@ -176,7 +175,6 @@
             button4.TabIndex = 1;
             button4.Text = "Update";
             button4.UseVisualStyleBackColor = true;
-//button4.Click += btnUpdate;
             // 
             // button3
             // 
@@ -188,7 +186,6 @@
             button3.TabIndex = 0;
             button3.Text = "Register";
             button3.UseVisualStyleBackColor = true;
-           // button3.Click += btnRegister;
             // 
             // groupBox1
             // 
@@ -230,7 +227,6 @@
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(267, 27);
             textBox11.TabIndex = 12;
-            //textBox11.TextChanged += txtParentContact;
             // 
             // label14
             // 
@@ -268,7 +264,6 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(267, 27);
             textBox9.TabIndex = 8;
-           // textBox9.TextChanged += txtNIC;
             // 
             // label12
             // 
@@ -288,7 +283,6 @@
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(267, 27);
             textBox10.TabIndex = 6;
-           // textBox10.TextChanged += txtParentName;
             // 
             // label13
             // 
@@ -325,7 +319,6 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(267, 27);
             textBox7.TabIndex = 10;
-           // textBox7.TextChanged += txtHomePhone;
             // 
             // label8
             // 
@@ -345,7 +338,6 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(267, 27);
             textBox6.TabIndex = 8;
-           // textBox6.TextChanged += txtmobilePhone;
             // 
             // label7
             // 
@@ -365,7 +357,6 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(267, 27);
             textBox4.TabIndex = 6;
-          //  textBox4.TextChanged += txtEmail;
             // 
             // label9
             // 

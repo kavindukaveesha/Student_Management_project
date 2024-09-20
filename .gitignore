@@ -1,0 +1,39 @@
+# General Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+*.vssscc
+*.vcxproj.filters
+*.vcxproj.user
+*.vcxproj.vspscc
+*.vspx
+*.vsp
+*.csproj.user
+*.vbproj.user
+
+# Build output folders
+bin/
+obj/
+Debug/
+Release/
+x64/
+AnyCPU/
+
+# Package management files
+packages/
+
+# User-specific settings
+.vssettings
+
+# ReSharper files
+_ReSharper*/
+*.ReSharper*
+
+# Team Foundation Server files
+*.vspscc
+*.vssscc
+
+# Other generated files
+*.cache
+Thumbs.db

@@ -1,4 +1,4 @@
-namespace Application
+namespace Student_management
 {
     internal static class Program
     {

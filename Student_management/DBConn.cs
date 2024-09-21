@@ -17,7 +17,7 @@ namespace Student_management
                 try
                 {
                     con.Open();
-
+                
                     SqlCommand cmd = new SqlCommand(query, con);
                     return cmd;
                 }

@@ -47,13 +47,13 @@
             Lastname = new Label();
             txtFirstName = new TextBox();
             firstName = new Label();
-            panel3 = new Panel();
             adminDataTable = new DataGridView();
+            panel3 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
-            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)adminDataTable).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -89,7 +89,7 @@
             panel2.Controls.Add(groupBox3);
             panel2.Location = new Point(0, 38);
             panel2.Name = "panel2";
-            panel2.Size = new Size(325, 413);
+            panel2.Size = new Size(320, 516);
             panel2.TabIndex = 1;
             // 
             // btnClear
@@ -253,31 +253,32 @@
             firstName.Size = new Size(80, 20);
             firstName.TabIndex = 3;
             firstName.Text = "First Name";
-            firstName.Click += label10_Click;
+            // 
+            // adminDataTable
+            // 
+            adminDataTable.BackgroundColor = SystemColors.ButtonFace;
+            adminDataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            adminDataTable.GridColor = SystemColors.InactiveCaption;
+            adminDataTable.Location = new Point(3, 33);
+            adminDataTable.Name = "adminDataTable";
+            adminDataTable.RowHeadersWidth = 51;
+            adminDataTable.Size = new Size(642, 466);
+            adminDataTable.TabIndex = 0;
+            adminDataTable.CellContentClick += adminDataTable_CellContentClick;
             // 
             // panel3
             // 
             panel3.Controls.Add(adminDataTable);
-            panel3.Location = new Point(327, 38);
+            panel3.Location = new Point(325, 42);
             panel3.Name = "panel3";
-            panel3.Size = new Size(655, 413);
+            panel3.Size = new Size(655, 503);
             panel3.TabIndex = 2;
-            // 
-            // adminDataTable
-            // 
-            adminDataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            adminDataTable.Location = new Point(14, 15);
-            adminDataTable.Name = "adminDataTable";
-            adminDataTable.RowHeadersWidth = 51;
-            adminDataTable.Size = new Size(620, 380);
-            adminDataTable.TabIndex = 0;
-            adminDataTable.CellContentClick += adminDataTable_CellContentClick;
             // 
             // ManageAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 453);
+            ClientSize = new Size(982, 553);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -291,8 +292,8 @@
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)adminDataTable).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -301,7 +302,6 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private Panel panel3;
         private GroupBox groupBox3;
         private TextBox txtFirstName;
         private Label firstName;
@@ -318,5 +318,6 @@
         private Button btnDelete;
         private Button btnRegisterAdmin;
         private DataGridView adminDataTable;
+        private Panel panel3;
     }
 }

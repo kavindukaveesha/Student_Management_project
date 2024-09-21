@@ -13,10 +13,10 @@ namespace Student_management.Forms
 {
     public partial class HomePage : Form
     {
-        int regNo {  get; set; }
+        int regNo { get; set; }
         string firstName { get; set; }
         string lastName { get; set; }
-        DateTime dateOfBirth {get; set; }
+        DateTime dateOfBirth { get; set; }
         string gender { get; set; }
         string address { get; set; }
         string email { get; set; }
@@ -33,7 +33,7 @@ namespace Student_management.Forms
         {
             InitializeComponent();
 
-            string query = "SELECT * FROM Registration";
+            /*string query = "SELECT * FROM Registration";
 
             SqlCommand cmd = DBConn.getCommand(query);
 
@@ -44,7 +44,7 @@ namespace Student_management.Forms
             regNo.Add(reader.GetInt32(0));
 
 
-            }
+            }*/
 
         }
 
@@ -179,6 +179,16 @@ namespace Student_management.Forms
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

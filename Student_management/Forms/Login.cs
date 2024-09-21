@@ -22,90 +22,113 @@ namespace Student_management.Forms
         {
 
         }
-        
-                private void btnLogin_Click(object sender, EventArgs e)
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             var loginsuccess = false;
 
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            string loginQuery = "SELECT useid FROM Logins WHERE usename = @username AND password = @password";
 
-            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            // Check if username or password is empty
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
+                MessageBox.Show(
+                    "Please enter both username and password.",
+                    "Input Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+            else
+            {
+                string loginQuery = "SELECT userId FROM Admins WHERE userName = @username AND password = @password";
+
                 try
                 {
                     SqlCommand cmd = DBConn.getCommand(loginQuery);
-                   
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
 
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
+                    if (reader.Read())
+                    {
+                        int userId = reader.GetInt32(0);
+                        if (userId >= 0)
                         {
-                            int useid = reader.GetInt32(0);
-                            if (useid >= 0)
-                            {
-                                loginsuccess = true;
-                            }
+                            loginsuccess = true;
                         }
-                    
+                    }
+                    reader.Close(); 
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL Error: " + ex.Message);
-
+                    MessageBox.Show(
+                        "Database error occurred: " + ex.Message,
+                        "SQL Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            }
-
-
-
-            try
-            {
-                if (loginsuccess)
-                {
-                    // Hide the current form (LoginForm)
-                    this.Hide();
-
                     MessageBox.Show(
-                   "Login Success!",
-                   "Success",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Information
-                   );
-                    // Open the HomePage form
-                    HomePage homePage = new HomePage();
-                    homePage.Show();
-                }
-                else
-                {
-                    MessageBox.Show(
-                    "Invalid Username or password.Check again!",
-                    "Login Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
+                        "An error occurred: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
                     );
+                }
 
-                    txtUsername.Clear();
-                    txtPassword.Clear();
+                // After the login attempt, check if login was successful
+                try
+                {
+                    if (loginsuccess)
+                    {
+                        // Hide the current form (LoginForm)
+                        this.Hide();
+
+                        MessageBox.Show(
+                            "Login Success!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        // Open the HomePage form
+                        HomePage homePage = new HomePage();
+                        homePage.Show();
+                    }
+                    else
+                    {
+                        // Invalid credentials
+                        MessageBox.Show(
+                            "Invalid Username or Password. Please try again!",
+                            "Login Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+
+                        // Clear the username and password text boxes
+                        txtUsername.Clear();
+                        txtPassword.Clear();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle any unexpected error that might occur when transitioning to the home page
+                    MessageBox.Show(
+                        "An error occurred while processing the login: " + ex.Message,
+                        "Login Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 }
             }
-            catch(Exception ex) {
-                    MessageBox.Show(
-                    "Login Error!",
-                     "Login Error",
-                           MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                            );
-            }
-           
+
+
 
 
         }

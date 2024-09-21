@@ -118,5 +118,15 @@ namespace Student_management.Forms
             }
 
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

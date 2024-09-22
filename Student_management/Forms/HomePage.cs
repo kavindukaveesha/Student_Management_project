@@ -35,19 +35,18 @@ namespace Student_management.Forms
         string contactNo { get; set; }
         SqlDataReader reader { get; set; }
 
-        List<string> regNos = new List<string>();
 
         public HomePage()
         {
-            InitializeComponent(GetButton4());
+            InitializeComponent();
             getAllData();
         }
 
         private void getAllData()
         {
-            string query = "SELECT * FROM Registration";
 
-            /*string query = "SELECT * FROM Registration";
+
+            string query = "SELECT * FROM Registration";
 
 
             SqlCommand cmd = DBConn.getCommand(query);
@@ -75,81 +74,32 @@ namespace Student_management.Forms
 
                 listView.Items.Add(item);
 
-
                 regNumberNew = (int)reader["regNo"] + 1;
+
             }
 
-            }*/
-
-
-            regNo.Text = "0" + Convert.ToString(regNumberNew);
+            regNoLabel.Text = "0" + Convert.ToString(regNumberNew);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void HomePage_Load(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
 
-        }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
             ManageAdmin manageAdmin = new ManageAdmin();
             manageAdmin.Show();
         }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-
-        private void txtMale(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFemale(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login login = new Login();
             login.Show();
 
         }
-
-        private void button6_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
             "Are you sure, Do you really want to Delete this Student...?",
@@ -203,11 +153,8 @@ namespace Student_management.Forms
 
 
             }
-
-
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
 
             firstName = txtFirstName.Text;
@@ -222,9 +169,9 @@ namespace Student_management.Forms
             contactNo = txtParentNumber.Text;
 
 
-            string query = "INSERT INTO Registration" +
-                " (firstName, lastName, dateOfBirth, gender, address, email, mobilePhone, homePhone, parentName, nic, contactNo)" +
-                "VALUES(@firstName, @lastName, @dateOfBirth, @gender, @address, @email, @mobilePhone, @homePhone, @parentName, @nic, @contactNo)";
+            string query = "INSERT INTO Registration " +
+                "( firstName, lastName, dateOfBirth, gender, address, email, mobilePhone, homePhone, parentName, nic, contactNo) " +
+                "VALUES( @firstName, @lastName, @dateOfBirth, @gender, @address, @email, @mobilePhone, @homePhone, @parentName, @nic, @contactNo)";
 
             try
             {
@@ -273,8 +220,7 @@ namespace Student_management.Forms
             }
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
             firstName = txtFirstName.Text;
@@ -346,55 +292,7 @@ namespace Student_management.Forms
 
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioMale_CheckedChanged(object sender, EventArgs e)
-        {
-            gender = "Male";
-        }
-
-        private void radioFemale_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtParentNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void button5_Click_1(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             txtFirstName.Clear();
             txtLastName.Clear();
@@ -408,13 +306,20 @@ namespace Student_management.Forms
 
             txtBirthOfDate.Value = DateTime.Now;
 
-            regNo.Text = "0" + Convert.ToString(regNumberNew);
+            regNoLabel.Text = "0" + Convert.ToString(regNumberNew);
 
             radioFemale.Checked = false;
             radioMale.Checked = false;
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void radioMale_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "Male";
+        }
+        private void radioFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "Female";
+        }
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count > 0)
             {
@@ -422,7 +327,7 @@ namespace Student_management.Forms
 
                 regNoSelected = Convert.ToInt16(selectedItem.Text);
 
-                regNo.Text = "0" + selectedItem.Text;
+                regNoLabel.Text = "0" + selectedItem.Text;
 
                 txtFirstName.Text = selectedItem.SubItems[1].Text;
                 txtLastName.Text = selectedItem.SubItems[2].Text;
@@ -446,11 +351,6 @@ namespace Student_management.Forms
             }
 
         }
-
-        private void label15_Click(object sender, EventArgs e)
-        { }
-
-
         private void btnmanageTeachers_Click(object sender, EventArgs e)
         {
             ManageTeachers manageTeachers = new ManageTeachers();
@@ -459,4 +359,4 @@ namespace Student_management.Forms
         }
     }
 }
-}
+

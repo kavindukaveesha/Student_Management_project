@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button2 = new Button();
+            btnLogout = new Button();
             button1 = new Button();
             label1 = new Label();
             panel3 = new Panel();
@@ -46,11 +46,12 @@
             parentNameCol = new ColumnHeader();
             nicCol = new ColumnHeader();
             contactNoCol = new ColumnHeader();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            btnRegister = new Button();
+            btnUpdate = new Button();
+            btnClear = new Button();
+            btnDelete = new Button();
             panel2 = new Panel();
+            regNoLabel = new Label();
             groupBox1 = new GroupBox();
             groupBox4 = new GroupBox();
             txtParentNumber = new TextBox();
@@ -81,7 +82,6 @@
             txtFirstName = new TextBox();
             label3 = new Label();
             label2 = new Label();
-           // regNo = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -96,26 +96,25 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
             panel1.BackColor = Color.DodgerBlue;
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1882, 55);
             panel1.TabIndex = 1;
-            panel1.Paint += panel1_Paint;
             // 
-            // button2
+            // btnLogout
             // 
-            button2.AutoSize = true;
-            button2.ForeColor = Color.FromArgb(192, 0, 0);
-            button2.Location = new Point(11, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 40);
-            button2.TabIndex = 4;
-            button2.Text = "Logout";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnLogout.AutoSize = true;
+            btnLogout.ForeColor = Color.FromArgb(192, 0, 0);
+            btnLogout.Location = new Point(11, 12);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(94, 40);
+            btnLogout.TabIndex = 4;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // button1
             // 
@@ -127,7 +126,6 @@
             button1.Text = "Manage Admins";
             button1.TextImageRelation = TextImageRelation.TextBeforeImage;
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -141,7 +139,6 @@
             label1.TabIndex = 2;
             label1.Text = "Student Management System";
             label1.TextAlign = ContentAlignment.TopCenter;
-            label1.Click += label1_Click_1;
             // 
             // panel3
             // 
@@ -167,7 +164,7 @@
             listView.TabStop = false;
             listView.UseCompatibleStateImageBehavior = false;
             listView.View = View.Details;
-            listView.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            listView.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // regNoCol
             // 
@@ -229,71 +226,79 @@
             contactNoCol.Text = "ContactNo";
             contactNoCol.Width = 100;
             // 
-            // button3
+            // btnRegister
             // 
-            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(11, 845);
-            button3.Name = "button3";
-            button3.Size = new Size(101, 29);
-            button3.TabIndex = 0;
-            button3.Text = "Register";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnRegister.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnRegister.ForeColor = Color.Black;
+            btnRegister.Location = new Point(11, 845);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(101, 29);
+            btnRegister.TabIndex = 0;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // button4
+            // btnUpdate
             // 
-            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button4.Location = new Point(123, 845);
-            button4.Name = "button4";
-            button4.Size = new Size(101, 29);
-            button4.TabIndex = 1;
-            button4.Text = "Update";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnUpdate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnUpdate.Location = new Point(123, 845);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(101, 29);
+            btnUpdate.TabIndex = 1;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // button5
+            // btnClear
             // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button5.Location = new Point(318, 845);
-            button5.Name = "button5";
-            button5.Size = new Size(101, 29);
-            button5.TabIndex = 2;
-            button5.Text = "Clear";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click_1;
+            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClear.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnClear.Location = new Point(318, 845);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(101, 29);
+            btnClear.TabIndex = 2;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
-            // button6
+            // btnDelete
             // 
-            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button6.Location = new Point(432, 845);
-            button6.Name = "button6";
-            button6.Size = new Size(101, 29);
-            button6.TabIndex = 3;
-            button6.Text = "Delete";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDelete.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnDelete.Location = new Point(432, 845);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(101, 29);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.Silver;
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(regNoLabel);
+            panel2.Controls.Add(btnDelete);
+            panel2.Controls.Add(btnClear);
+            panel2.Controls.Add(btnUpdate);
+            panel2.Controls.Add(btnRegister);
             panel2.Controls.Add(groupBox1);
             panel2.Location = new Point(0, 54);
             panel2.Name = "panel2";
             panel2.Size = new Size(550, 993);
             panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
+            // 
+            // regNoLabel
+            // 
+            regNoLabel.AutoSize = true;
+            regNoLabel.Font = new Font("Segoe UI", 12F);
+            regNoLabel.Location = new Point(211, 69);
+            regNoLabel.Name = "regNoLabel";
+            regNoLabel.Size = new Size(0, 28);
+            regNoLabel.TabIndex = 4;
             // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(regNo);
             groupBox1.Controls.Add(groupBox4);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(groupBox2);
@@ -305,7 +310,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Student Registration";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // groupBox4
             // 
@@ -331,7 +335,6 @@
             txtParentNumber.Name = "txtParentNumber";
             txtParentNumber.Size = new Size(267, 27);
             txtParentNumber.TabIndex = 12;
-            txtParentNumber.TextChanged += txtParentNumber_TextChanged;
             // 
             // label14
             // 
@@ -512,7 +515,6 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Basic Details";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // radioFemale
             // 
@@ -552,7 +554,6 @@
             label6.Size = new Size(67, 19);
             label6.TabIndex = 9;
             label6.Text = "Gender";
-            label6.Click += label6_Click;
             // 
             // txtBirthOfDate
             // 
@@ -624,18 +625,6 @@
             label2.TabIndex = 0;
             label2.Text = "Registration No";
             // 
-            // regNo
-            // 
-           /* regNo.AutoSize = true;
-            regNo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            regNo.Location = new Point(200, 40);
-            regNo.Name = "regNo";
-            regNo.Size = new Size(21, 24);
-            regNo.TabIndex = 14;
-            regNo.Text = "0";
-            regNo.Click += this.label15_Click;
-           */
-            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -648,11 +637,11 @@
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomePage";
-            Load += HomePage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -671,11 +660,11 @@
         private Label label1;
         private Panel panel3;
         private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button btnLogout;
+        private Button btnRegister;
+        private Button btnUpdate;
+        private Button btnClear;
+        private Button btnDelete;
         private Panel panel2;
         private GroupBox groupBox1;
         private GroupBox groupBox4;
@@ -720,6 +709,7 @@
         private ColumnHeader parentNameCol;
         private ColumnHeader nicCol;
         private ColumnHeader contactNoCol;
-        private Label regNo;
+        private Label regNoLabel;
+
     }
 }

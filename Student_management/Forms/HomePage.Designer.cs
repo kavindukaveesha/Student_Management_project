@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnmanageTeachers = new Button();
             button2 = new Button();
-            button1 = new Button();
+            btnManageAdmins = new Button();
             label1 = new Label();
+
             panel3 = new Panel();
             listView = new ListView();
             regNoCol = new ColumnHeader();
@@ -52,6 +54,12 @@
             button6 = new Button();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
+
+            panel2 = new Panel();
+            groupBox1 = new GroupBox();
+            button6 = new Button();
+            button5 = new Button();
+
             groupBox4 = new GroupBox();
             txtParentNumber = new TextBox();
             label14 = new Label();
@@ -61,6 +69,7 @@
             label12 = new Label();
             txtParentName = new TextBox();
             label13 = new Label();
+            button4 = new Button();
             groupBox3 = new GroupBox();
             txtHome = new TextBox();
             label8 = new Label();
@@ -70,6 +79,7 @@
             label9 = new Label();
             txtAddresses = new TextBox();
             label10 = new Label();
+            button3 = new Button();
             groupBox2 = new GroupBox();
             radioFemale = new RadioButton();
             radioMale = new RadioButton();
@@ -81,7 +91,11 @@
             txtFirstName = new TextBox();
             label3 = new Label();
             label2 = new Label();
+
             regNo = new Label();
+
+            panel3 = new Panel();
+
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -96,29 +110,53 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
             panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(btnmanageTeachers);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnManageAdmins);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
+
             panel1.Size = new Size(1882, 55);
+
+            panel1.Size = new Size(1585, 55);
+
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
+            // 
+            // btnmanageTeachers
+            // 
+            btnmanageTeachers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnmanageTeachers.Location = new Point(1275, 10);
+            btnmanageTeachers.Name = "btnmanageTeachers";
+            btnmanageTeachers.Size = new Size(140, 35);
+            btnmanageTeachers.TabIndex = 5;
+            btnmanageTeachers.Text = "Manage Teachers";
+            btnmanageTeachers.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnmanageTeachers.UseVisualStyleBackColor = true;
+            btnmanageTeachers.Click += btnmanageTeachers_Click;
             // 
             // button2
             // 
             button2.AutoSize = true;
             button2.ForeColor = Color.FromArgb(192, 0, 0);
+
             button2.Location = new Point(11, 12);
             button2.Name = "button2";
             button2.Size = new Size(94, 40);
+
+            button2.Location = new Point(11, 10);
+            button2.Name = "button2";
+            button2.Size = new Size(100, 35);
+
             button2.TabIndex = 4;
             button2.Text = "Logout";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button1
+            // btnManageAdmins
             // 
+
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.Location = new Point(1730, 12);
             button1.Name = "button1";
@@ -128,7 +166,17 @@
             button1.TextImageRelation = TextImageRelation.TextBeforeImage;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
+
+            btnManageAdmins.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnManageAdmins.Location = new Point(1430, 10);
+            btnManageAdmins.Name = "btnManageAdmins";
+            btnManageAdmins.Size = new Size(140, 35);
+            btnManageAdmins.TabIndex = 3;
+            btnManageAdmins.Text = "Manage Admins";
+            btnManageAdmins.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnManageAdmins.UseVisualStyleBackColor = true;
+            btnManageAdmins.Click += button1_Click;
+ 
             // label1
             // 
             label1.BackColor = Color.DodgerBlue;
@@ -136,15 +184,21 @@
             label1.Font = new Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
+            label1.MinimumSize = new Size(1582, 55);
             label1.Name = "label1";
+
             label1.Size = new Size(1882, 55);
+
+            label1.Size = new Size(1585, 55);
+
             label1.TabIndex = 2;
             label1.Text = "Student Management System";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click_1;
             // 
             // panel3
             // 
+
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = SystemColors.Control;
             panel3.Controls.Add(listView);
@@ -168,9 +222,52 @@
             listView.UseCompatibleStateImageBehavior = false;
             listView.View = View.Details;
             listView.SelectedIndexChanged += listView1_SelectedIndexChanged;
+
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(groupBox1);
+            panel2.Location = new Point(0, 56);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(550, 897);
+            panel2.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(button6);
+            groupBox1.Controls.Add(button5);
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(button4);
+            groupBox1.Controls.Add(groupBox3);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(11, 25);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(520, 843);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Student Registration";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button6.Location = new Point(393, 785);
+            button6.Name = "button6";
+            button6.Size = new Size(100, 35);
+            button6.TabIndex = 3;
+            button6.Text = "Delete";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+
             // 
             // regNoCol
             // 
+
             regNoCol.Text = "RegNo";
             regNoCol.Width = 75;
             // 
@@ -306,6 +403,26 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Student Registration";
             groupBox1.Enter += groupBox1_Enter;
+
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button5.Location = new Point(279, 785);
+            button5.Name = "button5";
+            button5.Size = new Size(100, 35);
+            button5.TabIndex = 2;
+            button5.Text = "Clear";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(200, 41);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(143, 27);
+            comboBox1.TabIndex = 14;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
             // 
             // groupBox4
             // 
@@ -400,6 +517,17 @@
             label13.TabIndex = 5;
             label13.Text = "Parent Name";
             // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button4.Location = new Point(135, 785);
+            button4.Name = "button4";
+            button4.Size = new Size(100, 35);
+            button4.TabIndex = 1;
+            button4.Text = "Update";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(txtHome);
@@ -493,6 +621,18 @@
             label10.Size = new Size(74, 19);
             label10.TabIndex = 3;
             label10.Text = "Address";
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(23, 785);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 35);
+            button3.TabIndex = 0;
+            button3.Text = "Register";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // groupBox2
             // 
@@ -624,6 +764,7 @@
             label2.TabIndex = 0;
             label2.Text = "Registration No";
             // 
+
             // regNo
             // 
             regNo.AutoSize = true;
@@ -634,16 +775,32 @@
             regNo.TabIndex = 14;
             regNo.Text = "0";
             regNo.Click += this.label15_Click;
+
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.Control;
+            panel3.Location = new Point(549, 56);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1036, 897);
+            panel3.TabIndex = 4;
+            panel3.Paint += panel3_Paint;
+
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(1385, 875);
+
+            AutoSize = true;
+            ClientSize = new Size(1582, 953);
+
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             MinimizeBox = false;
+            MinimumSize = new Size(1600, 1000);
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomePage";
@@ -669,7 +826,7 @@
         private Panel panel1;
         private Label label1;
         private Panel panel3;
-        private Button button1;
+        private Button btnManageAdmins;
         private Button button2;
         private Button button3;
         private Button button4;
@@ -686,6 +843,7 @@
         private Label label12;
         private TextBox txtParentName;
         private Label label13;
+
         private GroupBox groupBox3;
         private TextBox txtHome;
         private Label label8;
@@ -720,5 +878,13 @@
         private ColumnHeader nicCol;
         private ColumnHeader contactNoCol;
         private Label regNo;
+
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private ComboBox comboBox1;
+        private Button btnmanageTeachers;
+
     }
 }

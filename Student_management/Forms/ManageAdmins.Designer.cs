@@ -47,10 +47,13 @@
             Lastname = new Label();
             txtFirstName = new TextBox();
             firstName = new Label();
+            adminDataTable = new DataGridView();
             panel3 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)adminDataTable).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -60,17 +63,17 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(782, 40);
+            panel1.Size = new Size(982, 40);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(249, -1);
+            label1.Location = new Point(0, -1);
             label1.Name = "label1";
-            label1.Size = new Size(297, 35);
+            label1.Size = new Size(982, 41);
             label1.TabIndex = 0;
             label1.Text = "Admin Management";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -84,9 +87,9 @@
             panel2.Controls.Add(btnDelete);
             panel2.Controls.Add(btnRegisterAdmin);
             panel2.Controls.Add(groupBox3);
-            panel2.Location = new Point(0, 37);
+            panel2.Location = new Point(0, 38);
             panel2.Name = "panel2";
-            panel2.Size = new Size(325, 414);
+            panel2.Size = new Size(320, 516);
             panel2.TabIndex = 1;
             // 
             // btnClear
@@ -99,6 +102,7 @@
             btnClear.TabIndex = 17;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnUpdateAdmin
             // 
@@ -153,7 +157,7 @@
             groupBox3.Size = new Size(296, 278);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Contact Details";
+            groupBox3.Text = "Admin Details";
             // 
             // txtAdminId
             // 
@@ -249,20 +253,32 @@
             firstName.Size = new Size(80, 20);
             firstName.TabIndex = 3;
             firstName.Text = "First Name";
-            firstName.Click += label10_Click;
+            // 
+            // adminDataTable
+            // 
+            adminDataTable.BackgroundColor = SystemColors.ButtonFace;
+            adminDataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            adminDataTable.GridColor = SystemColors.InactiveCaption;
+            adminDataTable.Location = new Point(3, 33);
+            adminDataTable.Name = "adminDataTable";
+            adminDataTable.RowHeadersWidth = 51;
+            adminDataTable.Size = new Size(642, 466);
+            adminDataTable.TabIndex = 0;
+            adminDataTable.CellContentClick += adminDataTable_CellContentClick;
             // 
             // panel3
             // 
-            panel3.Location = new Point(327, 38);
+            panel3.Controls.Add(adminDataTable);
+            panel3.Location = new Point(325, 42);
             panel3.Name = "panel3";
-            panel3.Size = new Size(455, 413);
+            panel3.Size = new Size(655, 503);
             panel3.TabIndex = 2;
             // 
             // ManageAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(782, 453);
+            ClientSize = new Size(982, 553);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -273,10 +289,11 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ManageAdmin";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)adminDataTable).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -285,7 +302,6 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private Panel panel3;
         private GroupBox groupBox3;
         private TextBox txtFirstName;
         private Label firstName;
@@ -301,5 +317,7 @@
         private Button btnUpdateAdmin;
         private Button btnDelete;
         private Button btnRegisterAdmin;
+        private DataGridView adminDataTable;
+        private Panel panel3;
     }
 }

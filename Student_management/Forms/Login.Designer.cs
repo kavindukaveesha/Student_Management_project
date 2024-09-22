@@ -156,6 +156,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login-Skills International";
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

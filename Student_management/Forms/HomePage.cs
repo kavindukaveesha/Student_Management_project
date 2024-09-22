@@ -15,8 +15,12 @@ namespace Student_management.Forms
 {
     public partial class HomePage : Form
     {
+
         int regNumberNew { get; set; }
         int regNoSelected {  get; set; }
+
+
+        int regNo { get; set; }
 
         string firstName { get; set; }
         string lastName { get; set; }
@@ -43,6 +47,9 @@ namespace Student_management.Forms
         {
             string query = "SELECT * FROM Registration";
 
+            /*string query = "SELECT * FROM Registration";
+
+
             SqlCommand cmd = DBConn.getCommand(query);
 
             reader = cmd.ExecuteReader();
@@ -68,8 +75,12 @@ namespace Student_management.Forms
 
                 listView.Items.Add(item);
 
+
                 regNumberNew = (int)reader["regNo"] + 1;
             }
+
+            }*/
+
 
             regNo.Text = "0" + Convert.ToString(regNumberNew);
         }
@@ -353,13 +364,18 @@ namespace Student_management.Forms
 
         private void radioFemale_CheckedChanged(object sender, EventArgs e)
         {
-            gender = "Female";
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -432,6 +448,12 @@ namespace Student_management.Forms
 
         private void label15_Click(object sender, EventArgs e)
         {
+
+
+        private void btnmanageTeachers_Click(object sender, EventArgs e)
+        {
+            ManageTeachers manageTeachers = new ManageTeachers();
+            manageTeachers.Show();
 
         }
     }

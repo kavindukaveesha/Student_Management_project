@@ -17,6 +17,12 @@ namespace Student_management.Forms
         int teacherIdSelected { get; set; }
 
         int teacherId { get; set; }
+        string firstNameVar { get; set; }
+        string lastNameVar { get; set; }
+        string contactNoVar { get; set; }
+        string emailVar { get; set; }
+        string subjectVar { get; set; }
+        string salaryVar { get; set; }
 
         SqlDataReader reader { get; set; }
 
@@ -88,15 +94,15 @@ namespace Student_management.Forms
 
         private void btnRegisterAdmin_Click(object sender, EventArgs e)
         {
-            string firstName = txtFirstName.Text;
-            string lastName = txtlastName.Text;
-            string contactNo = txtContactNo.Text;
-            string email = txtEmail.Text;
-            string subject = txtSubject.Text;
-            string salary = txtSalary.Text;
+            firstNameVar = txtFirstName.Text;
+            lastNameVar = txtlastName.Text;
+            contactNoVar = txtContactNo.Text;
+            emailVar = txtEmail.Text;
+            subjectVar = txtSubject.Text;
+            salaryVar = txtSalary.Text;
 
             //check required inputs are entered or not
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(contactNo) || string.IsNullOrEmpty(subject))
+            if (string.IsNullOrEmpty(firstNameVar) || string.IsNullOrEmpty(contactNoVar) || string.IsNullOrEmpty(subjectVar))
             {
                 MessageBox.Show(
                     "First Name Contact No and Subject Important!.",
@@ -107,7 +113,7 @@ namespace Student_management.Forms
             }
 
             // Validate phone numbers are numeric and valid length (e.g., 10 digits)
-            if (!IsValidPhoneNumber(contactNo))
+            if (!IsValidPhoneNumber(contactNoVar))
             {
                 MessageBox.Show("Please enter valid phone numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -122,12 +128,12 @@ namespace Student_management.Forms
                     string query = "INSERT INTO Teachers (firstName, lastName, contactNo, email,subject,salary) VALUES (@firstName, @lastName, @contactNo, @email,@subject,@salary)";
                     SqlCommand cmd = DBConn.getCommand(query);
 
-                    cmd.Parameters.AddWithValue("@firstName", firstName);
-                    cmd.Parameters.AddWithValue("@lastName", lastName);
-                    cmd.Parameters.AddWithValue("@contactNo", contactNo);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@subject", subject);
-                    cmd.Parameters.AddWithValue("@salary", salary);
+                    cmd.Parameters.AddWithValue("@firstName", firstNameVar);
+                    cmd.Parameters.AddWithValue("@lastName", lastNameVar);
+                    cmd.Parameters.AddWithValue("@contactNo", contactNoVar);
+                    cmd.Parameters.AddWithValue("@email", emailVar);
+                    cmd.Parameters.AddWithValue("@subject", subjectVar);
+                    cmd.Parameters.AddWithValue("@salary", salaryVar);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show(
@@ -152,16 +158,16 @@ namespace Student_management.Forms
 
         private void btnUpdateAdmin_Click(object sender, EventArgs e)
         {
-            string firstName = txtFirstName.Text;
-            string lastName = txtlastName.Text;
-            string contactNo = txtContactNo.Text;
-            string email = txtEmail.Text;
-            string subject = txtSubject.Text;
-            string salary = txtSalary.Text;
+            firstNameVar = txtFirstName.Text;
+            lastNameVar = txtlastName.Text;
+            contactNoVar = txtContactNo.Text;
+            emailVar = txtEmail.Text;
+            subjectVar = txtSubject.Text;
+            salaryVar = txtSalary.Text;
 
 
             //check required inputs are entered or not
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(contactNo) || string.IsNullOrEmpty(subject))
+            if (string.IsNullOrEmpty(firstNameVar) || string.IsNullOrEmpty(contactNoVar) || string.IsNullOrEmpty(subjectVar))
             {
                 MessageBox.Show(
                     "First Name Contact No and Subject Important!.",
@@ -172,7 +178,7 @@ namespace Student_management.Forms
             }
 
             // Validate phone numbers are numeric and valid length (e.g., 10 digits)
-            if (!IsValidPhoneNumber(contactNo))
+            if (!IsValidPhoneNumber(contactNoVar))
             {
                 MessageBox.Show("Please enter valid phone numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -188,12 +194,12 @@ namespace Student_management.Forms
                     string query = "UPDATE Teachers SET firstName = @firstName, lastName = @lastName, contactNo = @contactNo, email = @email,subject = @subject,salary = @salary WHERE teacherId = @teacherIdSelected";
                     SqlCommand cmd = DBConn.getCommand(query);
                     cmd.Parameters.AddWithValue("@teacherIdSelected", teacherIdSelected);
-                    cmd.Parameters.AddWithValue("@firstName", firstName);
-                    cmd.Parameters.AddWithValue("@lastName", lastName);
-                    cmd.Parameters.AddWithValue("@contactNo", contactNo);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@subject", subject);
-                    cmd.Parameters.AddWithValue("@salary", salary);
+                    cmd.Parameters.AddWithValue("@firstName", firstNameVar);
+                    cmd.Parameters.AddWithValue("@lastName", lastNameVar);
+                    cmd.Parameters.AddWithValue("@contactNo", contactNoVar);
+                    cmd.Parameters.AddWithValue("@email", emailVar);
+                    cmd.Parameters.AddWithValue("@subject", subjectVar);
+                    cmd.Parameters.AddWithValue("@salary", salaryVar);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show(
@@ -271,7 +277,7 @@ namespace Student_management.Forms
 
                 txtFirstName.Text = selectedItem.SubItems[1].Text;
                 txtlastName.Text = selectedItem.SubItems[2].Text;
-                txtContactNo.Text =selectedItem.SubItems[3].Text;
+                txtContactNo.Text = selectedItem.SubItems[3].Text;
                 txtEmail.Text = selectedItem.SubItems[4].Text;
                 txtSubject.Text = selectedItem.SubItems[5].Text;
                 txtSalary.Text = selectedItem.SubItems[6].Text;

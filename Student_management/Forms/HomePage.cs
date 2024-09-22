@@ -18,8 +18,6 @@ namespace Student_management.Forms
 
         int regNumberNew { get; set; }
         int regNoSelected { get; set; }
-
-
         int regNo { get; set; }
 
         string firstName { get; set; }
@@ -41,7 +39,12 @@ namespace Student_management.Forms
             InitializeComponent();
             getAllData();
         }
+        private void HomePage_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        //function for clear inputs
         private void clearInputs()
         {
             txtFirstName.Clear();
@@ -56,6 +59,8 @@ namespace Student_management.Forms
             txtBirthOfDate.Value = DateTime.Now;
         }
 
+
+        //function for get all data
         private void getAllData()
         {
 
@@ -97,74 +102,8 @@ namespace Student_management.Forms
 
 
 
-        private void btnAdmin_Click(object sender, EventArgs e)
-        {
-            ManageAdmin manageAdmin = new ManageAdmin();
-            manageAdmin.Show();
-        }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Login login = new Login();
-            login.Show();
 
-        }
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-            "Are you sure, Do you really want to Delete this Student...?",
-            "Delete",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question);
-
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-
-                    string query = "DELETE FROM Registration WHERE regNo = @regNoSelected";
-
-                    SqlCommand cmd = DBConn.getCommand(query);
-
-                    cmd.Parameters.AddWithValue("@regNoSelected", regNoSelected);
-
-                    cmd.ExecuteNonQuery();
-
-                    //try to delete student
-                    MessageBox.Show(
-                   "Student Deleted Successfully",
-                   "Delete Student",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Information
-                   );
-                    clearInputs();
-
-                    getAllData();
-                }
-                catch (SqlException sqlEx)
-                {
-                    MessageBox.Show(
-                        $"SQL Error: {sqlEx.Message}",
-                        "SQL Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                    "Error in delete.check again",
-                    "Error!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                     );
-
-                }
-
-
-            }
-        }
+        //register student
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
@@ -245,7 +184,7 @@ namespace Student_management.Forms
         }
 
 
-
+        //update student
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -344,33 +283,77 @@ namespace Student_management.Forms
 
 
         }
+
+        //delete student
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Are you sure, Do you really want to Delete this Student...?",
+            "Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+
+                    string query = "DELETE FROM Registration WHERE regNo = @regNoSelected";
+
+                    SqlCommand cmd = DBConn.getCommand(query);
+
+                    cmd.Parameters.AddWithValue("@regNoSelected", regNoSelected);
+
+                    cmd.ExecuteNonQuery();
+
+                    //try to delete student
+                    MessageBox.Show(
+                   "Student Deleted Successfully",
+                   "Delete Student",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information
+                   );
+                    clearInputs();
+
+                    getAllData();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show(
+                        $"SQL Error: {sqlEx.Message}",
+                        "SQL Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Error in delete.check again",
+                    "Error!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                     );
+
+                }
+
+
+            }
+        }
+
+        //clear text fields
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtFirstName.Clear();
-            txtLastName.Clear();
-            txtAddresses.Clear();
-            txtEmail.Clear();
-            txtMobile.Clear();
-            txtHome.Clear();
-            txtParentName.Clear();
-            txtNic.Clear();
-            txtParentNumber.Clear();
-
+            clearInputs();
             txtBirthOfDate.Value = DateTime.Now;
-
             regNoLabel.Text = Convert.ToString(regNumberNew);
 
             radioFemale.Checked = false;
             radioMale.Checked = false;
         }
-        private void radioMale_CheckedChanged(object sender, EventArgs e)
-        {
-            gender = "Male";
-        }
-        private void radioFemale_CheckedChanged(object sender, EventArgs e)
-        {
-            gender = "Female";
-        }
+
+        //function to selected row add to text field
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count > 0)
@@ -403,29 +386,6 @@ namespace Student_management.Forms
             }
 
         }
-        private void btnmanageTeachers_Click(object sender, EventArgs e)
-        {
-            ManageTeachers manageTeachers = new ManageTeachers();
-            manageTeachers.Show();
-
-        }
-
-        private void HomePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ManageAdmin admin = new ManageAdmin();
-            admin.Show();
-        }
-
-        private void btnManageTeachers_Click_1(object sender, EventArgs e)
-        {
-            ManageTeachers admin = new ManageTeachers();
-            admin.Show();
-        }
 
         //This is the function to refresh form
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -433,6 +393,48 @@ namespace Student_management.Forms
             getAllData();
             clearInputs();
         }
+
+
+
+        //radio male
+        private void radioMale_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "Male";
+        }
+
+        //radio female
+        private void radioFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "Female";
+        }
+
+
+        //goto admin management form
+        private void btnManageAdmins_Click(object sender, EventArgs e)
+        {
+            ManageAdmin manageAdmin = new ManageAdmin();
+            manageAdmin.Show();
+        }
+
+        //logout 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+
+        }
+
+        //goto teacher management
+        private void btnManageTeachers_Click_1(object sender, EventArgs e)
+        {
+            ManageTeachers admin = new ManageTeachers();
+            admin.Show();
+        }
+
+
+
+
 
 
         //check mobile numbers can only have 10 numbers
@@ -473,10 +475,7 @@ namespace Student_management.Forms
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
 

@@ -61,7 +61,6 @@
             label1.Size = new Size(348, 44);
             label1.TabIndex = 1;
             label1.Text = "Skills International";
-            label1.Click += label1_Click;
             // 
             // groupBox1
             // 
@@ -109,7 +108,6 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(201, 30);
             txtPassword.TabIndex = 3;
-            txtPassword.TextChanged += textBox2_TextChanged;
             // 
             // Password
             // 
@@ -126,7 +124,6 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(201, 30);
             txtUsername.TabIndex = 1;
-            txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // Username
             // 
@@ -152,7 +149,6 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login-Skills International";
-            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

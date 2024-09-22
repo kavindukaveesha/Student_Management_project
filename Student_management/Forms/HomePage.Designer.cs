@@ -32,7 +32,7 @@
             panel1 = new Panel();
             btnManageTeachers = new Button();
             btnLogout = new Button();
-            button1 = new Button();
+            btnManageAdmins = new Button();
             label1 = new Label();
             btnRefresh = new Button();
             panel3 = new Panel();
@@ -101,7 +101,7 @@
             panel1.BackColor = Color.DodgerBlue;
             panel1.Controls.Add(btnManageTeachers);
             panel1.Controls.Add(btnLogout);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnManageAdmins);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -133,17 +133,17 @@
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
-            // button1
+            // btnManageAdmins
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(1430, 10);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 35);
-            button1.TabIndex = 3;
-            button1.Text = "Manage Admins";
-            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnManageAdmins.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnManageAdmins.Location = new Point(1430, 10);
+            btnManageAdmins.Name = "btnManageAdmins";
+            btnManageAdmins.Size = new Size(140, 35);
+            btnManageAdmins.TabIndex = 3;
+            btnManageAdmins.Text = "Manage Admins";
+            btnManageAdmins.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnManageAdmins.UseVisualStyleBackColor = true;
+            btnManageAdmins.Click += btnManageAdmins_Click;
             // 
             // label1
             // 
@@ -157,7 +157,6 @@
             label1.TabIndex = 2;
             label1.Text = "Student Management System";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // btnRefresh
             // 
@@ -715,7 +714,7 @@
         private Panel panel1;
         private Label label1;
         private Panel panel3;
-        private Button button1;
+        private Button btnManageAdmins;
         private Button btnLogout;
         private Button btnRegister;
         private Button btnUpdate;

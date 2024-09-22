@@ -83,7 +83,6 @@
             label1.TabIndex = 0;
             label1.Text = "Admin Management";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click_1;
             // 
             // panel2
             // 

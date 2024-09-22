@@ -18,10 +18,7 @@ namespace Student_management.Forms
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -41,10 +38,12 @@ namespace Student_management.Forms
                     MessageBoxIcon.Warning
                 );
             }
+
             else
+
             {
-                string loginQuery = "SELECT userId FROM Admins WHERE userName = @username AND password = @password";  // Kavindu
-               // string loginQuery = "SELECT useId FROM Logins WHERE useName = @username AND password = @password";    // Prasad
+                //sql query
+                string loginQuery = "SELECT userId FROM Admins WHERE userName = @username AND password = @password";
 
 
                 try
@@ -70,7 +69,7 @@ namespace Student_management.Forms
 
 
 
-                    reader.Close(); 
+                    reader.Close();
 
                 }
                 catch (SqlException ex)
@@ -149,19 +148,6 @@ namespace Student_management.Forms
             txtPassword.Clear();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

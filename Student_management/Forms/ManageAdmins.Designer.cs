@@ -157,7 +157,7 @@
             groupBox3.Size = new Size(296, 278);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Contact Details";
+            groupBox3.Text = "Admin Details";
             // 
             // txtAdminId
             // 

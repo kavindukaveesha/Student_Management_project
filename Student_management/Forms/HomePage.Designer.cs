@@ -103,6 +103,7 @@
             btnmanageTeachers.Text = "Manage Teachers";
             btnmanageTeachers.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnmanageTeachers.UseVisualStyleBackColor = true;
+            btnmanageTeachers.Click += btnmanageTeachers_Click;
             // 
             // button2
             // 

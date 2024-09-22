@@ -192,5 +192,11 @@ namespace Student_management.Forms
         {
 
         }
+
+        private void btnmanageTeachers_Click(object sender, EventArgs e)
+        {
+            ManageTeachers manageTeachers = new ManageTeachers();
+            manageTeachers.Show();
+        }
     }
 }

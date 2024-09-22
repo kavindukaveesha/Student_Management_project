@@ -48,20 +48,28 @@ namespace Student_management.Forms
                 try
                 {
                     SqlCommand cmd = DBConn.getCommand(loginQuery);
+
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
+
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
+
                         int userId = reader.GetInt32(0);
                         if (userId >= 0)
+
                         {
                             loginsuccess = true;
                         }
                     }
+
+
+
                     reader.Close(); 
+
                 }
                 catch (SqlException ex)
                 {
@@ -145,6 +153,11 @@ namespace Student_management.Forms
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
         }

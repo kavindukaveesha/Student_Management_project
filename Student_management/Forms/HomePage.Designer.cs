@@ -33,11 +33,33 @@
             button2 = new Button();
             btnManageAdmins = new Button();
             label1 = new Label();
+
+            panel3 = new Panel();
+            listView = new ListView();
+            regNoCol = new ColumnHeader();
+            firstNameCol = new ColumnHeader();
+            lastNameCol = new ColumnHeader();
+            dateOfBirthCol = new ColumnHeader();
+            genderCol = new ColumnHeader();
+            addressCol = new ColumnHeader();
+            emailCol = new ColumnHeader();
+            mobilePhoneCol = new ColumnHeader();
+            homePhoneCol = new ColumnHeader();
+            parentNameCol = new ColumnHeader();
+            nicCol = new ColumnHeader();
+            contactNoCol = new ColumnHeader();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            panel2 = new Panel();
+            groupBox1 = new GroupBox();
+
             panel2 = new Panel();
             groupBox1 = new GroupBox();
             button6 = new Button();
             button5 = new Button();
-            comboBox1 = new ComboBox();
+
             groupBox4 = new GroupBox();
             txtParentNumber = new TextBox();
             label14 = new Label();
@@ -69,8 +91,13 @@
             txtFirstName = new TextBox();
             label3 = new Label();
             label2 = new Label();
+
+            regNo = new Label();
+
             panel3 = new Panel();
+
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -89,7 +116,11 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
+
+            panel1.Size = new Size(1882, 55);
+
             panel1.Size = new Size(1585, 55);
+
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
@@ -109,9 +140,15 @@
             // 
             button2.AutoSize = true;
             button2.ForeColor = Color.FromArgb(192, 0, 0);
+
+            button2.Location = new Point(11, 12);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 40);
+
             button2.Location = new Point(11, 10);
             button2.Name = "button2";
             button2.Size = new Size(100, 35);
+
             button2.TabIndex = 4;
             button2.Text = "Logout";
             button2.UseVisualStyleBackColor = true;
@@ -119,6 +156,17 @@
             // 
             // btnManageAdmins
             // 
+
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(1730, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 29);
+            button1.TabIndex = 3;
+            button1.Text = "Manage Admins";
+            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+
             btnManageAdmins.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnManageAdmins.Location = new Point(1430, 10);
             btnManageAdmins.Name = "btnManageAdmins";
@@ -128,7 +176,7 @@
             btnManageAdmins.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnManageAdmins.UseVisualStyleBackColor = true;
             btnManageAdmins.Click += button1_Click;
-            // 
+ 
             // label1
             // 
             label1.BackColor = Color.DodgerBlue;
@@ -138,14 +186,43 @@
             label1.Location = new Point(0, 0);
             label1.MinimumSize = new Size(1582, 55);
             label1.Name = "label1";
+
+            label1.Size = new Size(1882, 55);
+
             label1.Size = new Size(1585, 55);
+
             label1.TabIndex = 2;
             label1.Text = "Student Management System";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click_1;
             // 
-            // panel2
+            // panel3
             // 
+
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(listView);
+            panel3.Location = new Point(549, 54);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1334, 1135);
+            panel3.TabIndex = 4;
+            // 
+            // listView
+            // 
+            listView.BackColor = Color.Gainsboro;
+            listView.Columns.AddRange(new ColumnHeader[] { regNoCol, firstNameCol, lastNameCol, dateOfBirthCol, genderCol, addressCol, emailCol, mobilePhoneCol, homePhoneCol, parentNameCol, nicCol, contactNoCol });
+            listView.FullRowSelect = true;
+            listView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listView.Location = new Point(0, 0);
+            listView.Name = "listView";
+            listView.Scrollable = false;
+            listView.Size = new Size(1450, 993);
+            listView.TabIndex = 0;
+            listView.TabStop = false;
+            listView.UseCompatibleStateImageBehavior = false;
+            listView.View = View.Details;
+            listView.SelectedIndexChanged += listView1_SelectedIndexChanged;
+
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel2.BackColor = Color.Silver;
             panel2.Controls.Add(groupBox1);
@@ -186,9 +263,147 @@
             button6.Text = "Delete";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
+
+            // 
+            // regNoCol
+            // 
+
+            regNoCol.Text = "RegNo";
+            regNoCol.Width = 75;
+            // 
+            // firstNameCol
+            // 
+            firstNameCol.Text = "FirstName";
+            firstNameCol.Width = 125;
+            // 
+            // lastNameCol
+            // 
+            lastNameCol.Text = "LastName";
+            lastNameCol.Width = 125;
+            // 
+            // dateOfBirthCol
+            // 
+            dateOfBirthCol.Text = "DateOfBirth";
+            dateOfBirthCol.Width = 100;
+            // 
+            // genderCol
+            // 
+            genderCol.Text = "Gender";
+            genderCol.Width = 75;
+            // 
+            // addressCol
+            // 
+            addressCol.Text = "Address";
+            addressCol.Width = 200;
+            // 
+            // emailCol
+            // 
+            emailCol.Text = "Email";
+            emailCol.Width = 125;
+            // 
+            // mobilePhoneCol
+            // 
+            mobilePhoneCol.Text = "MobilePhone";
+            mobilePhoneCol.Width = 100;
+            // 
+            // homePhoneCol
+            // 
+            homePhoneCol.Text = "HomePhone";
+            homePhoneCol.Width = 125;
+            // 
+            // parentNameCol
+            // 
+            parentNameCol.Text = "ParentName";
+            parentNameCol.Width = 125;
+            // 
+            // nicCol
+            // 
+            nicCol.Text = "NIC";
+            nicCol.Width = 100;
+            // 
+            // contactNoCol
+            // 
+            contactNoCol.Text = "ContactNo";
+            contactNoCol.Width = 100;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(11, 845);
+            button3.Name = "button3";
+            button3.Size = new Size(101, 29);
+            button3.TabIndex = 0;
+            button3.Text = "Register";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button4.Location = new Point(123, 845);
+            button4.Name = "button4";
+            button4.Size = new Size(101, 29);
+            button4.TabIndex = 1;
+            button4.Text = "Update";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button5.Location = new Point(318, 845);
+            button5.Name = "button5";
+            button5.Size = new Size(101, 29);
+            button5.TabIndex = 2;
+            button5.Text = "Clear";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button6.Location = new Point(432, 845);
+            button6.Name = "button6";
+            button6.Size = new Size(101, 29);
+            button6.TabIndex = 3;
+            button6.Text = "Delete";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(button6);
+            panel2.Controls.Add(button5);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(groupBox1);
+            panel2.Location = new Point(0, 54);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(550, 993);
+            panel2.TabIndex = 3;
+            panel2.Paint += panel2_Paint;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(regNo);
+            groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(groupBox3);
+            groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(11, 25);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(520, 777);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Student Registration";
+            groupBox1.Enter += groupBox1_Enter;
+
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             button5.Location = new Point(279, 785);
@@ -207,6 +422,7 @@
             comboBox1.Size = new Size(143, 27);
             comboBox1.TabIndex = 14;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
             // 
             // groupBox4
             // 
@@ -232,6 +448,7 @@
             txtParentNumber.Name = "txtParentNumber";
             txtParentNumber.Size = new Size(267, 27);
             txtParentNumber.TabIndex = 12;
+            txtParentNumber.TextChanged += txtParentNumber_TextChanged;
             // 
             // label14
             // 
@@ -449,6 +666,7 @@
             radioFemale.TabStop = true;
             radioFemale.Text = "Female";
             radioFemale.UseVisualStyleBackColor = true;
+            radioFemale.CheckedChanged += radioFemale_CheckedChanged;
             // 
             // radioMale
             // 
@@ -462,6 +680,7 @@
             radioMale.TabStop = true;
             radioMale.Text = "Male";
             radioMale.UseVisualStyleBackColor = true;
+            radioMale.CheckedChanged += radioMale_CheckedChanged;
             // 
             // label6
             // 
@@ -545,6 +764,18 @@
             label2.TabIndex = 0;
             label2.Text = "Registration No";
             // 
+
+            // regNo
+            // 
+            regNo.AutoSize = true;
+            regNo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            regNo.Location = new Point(200, 40);
+            regNo.Name = "regNo";
+            regNo.Size = new Size(21, 24);
+            regNo.TabIndex = 14;
+            regNo.Text = "0";
+            regNo.Click += this.label15_Click;
+
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
@@ -553,13 +784,18 @@
             panel3.Size = new Size(1036, 897);
             panel3.TabIndex = 4;
             panel3.Paint += panel3_Paint;
+
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
+            ClientSize = new Size(1385, 875);
+
             AutoSize = true;
             ClientSize = new Size(1582, 953);
+
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -571,6 +807,7 @@
             Load += HomePage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -588,31 +825,15 @@
 
         private Panel panel1;
         private Label label1;
-        private Panel panel2;
         private Panel panel3;
         private Button btnManageAdmins;
         private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Panel panel2;
         private GroupBox groupBox1;
-        private Label label2;
-        private GroupBox groupBox2;
-        private DateTimePicker txtBirthOfDate;
-        private Label label5;
-        private TextBox txtLastName;
-        private Label label4;
-        private TextBox txtFirstName;
-        private Label label3;
-        private Label label6;
-        private RadioButton radioFemale;
-        private RadioButton radioMale;
-        private GroupBox groupBox3;
-        private TextBox txtHome;
-        private Label label8;
-        private TextBox txtMobile;
-        private Label label7;
-        private TextBox txtEmail;
-        private Label label9;
-        private TextBox txtAddresses;
-        private Label label10;
         private GroupBox groupBox4;
         private TextBox txtParentNumber;
         private Label label14;
@@ -622,11 +843,48 @@
         private Label label12;
         private TextBox txtParentName;
         private Label label13;
+
+        private GroupBox groupBox3;
+        private TextBox txtHome;
+        private Label label8;
+        private TextBox txtMobile;
+        private Label label7;
+        private TextBox txtEmail;
+        private Label label9;
+        private TextBox txtAddresses;
+        private Label label10;
+        private GroupBox groupBox2;
+        private RadioButton radioFemale;
+        private RadioButton radioMale;
+        private Label label6;
+        private DateTimePicker txtBirthOfDate;
+        private Label label5;
+        private TextBox txtLastName;
+        private Label label4;
+        private TextBox txtFirstName;
+        private Label label3;
+        private Label label2;
+        private ListView listView;
+        private ColumnHeader regNoCol;
+        private ColumnHeader firstNameCol;
+        private ColumnHeader lastNameCol;
+        private ColumnHeader dateOfBirthCol;
+        private ColumnHeader genderCol;
+        private ColumnHeader addressCol;
+        private ColumnHeader emailCol;
+        private ColumnHeader mobilePhoneCol;
+        private ColumnHeader homePhoneCol;
+        private ColumnHeader parentNameCol;
+        private ColumnHeader nicCol;
+        private ColumnHeader contactNoCol;
+        private Label regNo;
+
         private Button button6;
         private Button button5;
         private Button button4;
         private Button button3;
         private ComboBox comboBox1;
         private Button btnmanageTeachers;
+
     }
 }

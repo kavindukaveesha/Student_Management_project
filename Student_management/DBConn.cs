@@ -14,6 +14,21 @@ namespace Student_management
         {
             SqlConnection con = new SqlConnection(connectionString);
 
+            
+                try
+                {
+                    con.Open();
+                
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    return cmd;
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("SQL Error: " + ex.Message);
+                }
+            
+
+
             try
             {
                 con.Open();
@@ -27,6 +42,7 @@ namespace Student_management
             {
                 Console.WriteLine("SQL Error: " + ex.Message);
             }
+
 
             return null;
         }

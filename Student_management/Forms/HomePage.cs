@@ -17,7 +17,7 @@ namespace Student_management.Forms
     {
 
         int regNumberNew { get; set; }
-        int regNoSelected {  get; set; }
+        int regNoSelected { get; set; }
 
 
         int regNo { get; set; }
@@ -39,7 +39,7 @@ namespace Student_management.Forms
 
         public HomePage()
         {
-            InitializeComponent();
+            InitializeComponent(GetButton4());
             getAllData();
         }
 
@@ -167,7 +167,7 @@ namespace Student_management.Forms
 
                     SqlCommand cmd = DBConn.getCommand(query);
 
-                    cmd.Parameters.AddWithValue("@regNoSelected",regNoSelected);
+                    cmd.Parameters.AddWithValue("@regNoSelected", regNoSelected);
 
                     cmd.ExecuteNonQuery();
 
@@ -200,7 +200,7 @@ namespace Student_management.Forms
                      );
 
                 }
-                
+
 
             }
 
@@ -343,7 +343,7 @@ namespace Student_management.Forms
                 );
             }
 
-           
+
 
         }
 
@@ -364,6 +364,7 @@ namespace Student_management.Forms
 
         private void radioFemale_CheckedChanged(object sender, EventArgs e)
         {
+        }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -447,7 +448,7 @@ namespace Student_management.Forms
         }
 
         private void label15_Click(object sender, EventArgs e)
-        {
+        { }
 
 
         private void btnmanageTeachers_Click(object sender, EventArgs e)
@@ -457,4 +458,5 @@ namespace Student_management.Forms
 
         }
     }
+}
 }

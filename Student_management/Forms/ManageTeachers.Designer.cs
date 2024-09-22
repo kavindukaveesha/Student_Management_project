@@ -36,6 +36,7 @@
             btnDelete = new Button();
             btnRegisterAdmin = new Button();
             groupBox3 = new GroupBox();
+            subjectDropdown = new ComboBox();
             txtTeacherId = new TextBox();
             adminId = new Label();
             txtPassword = new TextBox();
@@ -46,7 +47,6 @@
             txtFirstName = new TextBox();
             firstName = new Label();
             adminDataTable = new DataGridView();
-            subjectDropdown = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -151,6 +151,17 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Teacher Details";
             // 
+            // subjectDropdown
+            // 
+            subjectDropdown.AutoCompleteCustomSource.AddRange(new string[] { "Maths", "History", "English", "Information Technology" });
+            subjectDropdown.DropDownStyle = ComboBoxStyle.DropDownList;
+            subjectDropdown.FormattingEnabled = true;
+            subjectDropdown.Items.AddRange(new object[] { "Maths", "Sinhala", "English", "History", "Information Technology", "Health", "Tamil" });
+            subjectDropdown.Location = new Point(125, 177);
+            subjectDropdown.Name = "subjectDropdown";
+            subjectDropdown.Size = new Size(161, 28);
+            subjectDropdown.TabIndex = 15;
+            // 
             // txtTeacherId
             // 
             txtTeacherId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -249,15 +260,6 @@
             adminDataTable.Size = new Size(823, 486);
             adminDataTable.TabIndex = 4;
             // 
-            // subjectDropdown
-            // 
-            subjectDropdown.AutoCompleteCustomSource.AddRange(new string[] { "Maths", "History", "English", "Information Technology" });
-            subjectDropdown.FormattingEnabled = true;
-            subjectDropdown.Location = new Point(125, 177);
-            subjectDropdown.Name = "subjectDropdown";
-            subjectDropdown.Size = new Size(161, 28);
-            subjectDropdown.TabIndex = 15;
-            // 
             // ManageTeachers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -267,7 +269,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ManageTeachers";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ManageTeachers";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

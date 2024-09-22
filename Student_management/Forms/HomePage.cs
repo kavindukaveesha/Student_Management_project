@@ -42,6 +42,20 @@ namespace Student_management.Forms
             getAllData();
         }
 
+        private void clearInputs()
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtAddresses.Clear();
+            txtEmail.Clear();
+            txtMobile.Clear();
+            txtHome.Clear();
+            txtParentName.Clear();
+            txtNic.Clear();
+            txtParentNumber.Clear();
+            txtBirthOfDate.Value = DateTime.Now;
+        }
+
         private void getAllData()
         {
 
@@ -78,12 +92,8 @@ namespace Student_management.Forms
 
             }
 
-            regNoLabel.Text = "0" + Convert.ToString(regNumberNew);
+            regNoLabel.Text = Convert.ToString(regNumberNew);
         }
-
-
-
-
 
 
 
@@ -128,6 +138,7 @@ namespace Student_management.Forms
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Information
                    );
+                    clearInputs();
 
                     getAllData();
                 }
@@ -157,6 +168,7 @@ namespace Student_management.Forms
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
+            // Get values from input fields
             firstName = txtFirstName.Text;
             lastName = txtLastName.Text;
             dateOfBirth = txtBirthOfDate.Value;
@@ -168,58 +180,72 @@ namespace Student_management.Forms
             nic = txtNic.Text;
             contactNo = txtParentNumber.Text;
 
+            // Validate inputs
+            if (string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(address) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(mobilePhone) ||
+                string.IsNullOrWhiteSpace(gender) ||
+                string.IsNullOrWhiteSpace(parentName) ||
+                string.IsNullOrWhiteSpace(nic) ||
+                string.IsNullOrWhiteSpace(contactNo))
+            {
 
+                MessageBox.Show("Please fill out all fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // Validate phone numbers are numeric and valid length (e.g., 10 digits)
+            if (!IsValidPhoneNumber(mobilePhone) || !IsValidPhoneNumber(homePhone) || !IsValidPhoneNumber(contactNo))
+            {
+                MessageBox.Show("Please enter valid phone numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
+            // Insert the data into the database
             string query = "INSERT INTO Registration " +
-                "( firstName, lastName, dateOfBirth, gender, address, email, mobilePhone, homePhone, parentName, nic, contactNo) " +
-                "VALUES( @firstName, @lastName, @dateOfBirth, @gender, @address, @email, @mobilePhone, @homePhone, @parentName, @nic, @contactNo)";
+                           "(firstName, lastName, dateOfBirth, gender, address, email, mobilePhone, homePhone, parentName, nic, contactNo) " +
+                           "VALUES(@firstName, @lastName, @dateOfBirth, @gender, @address, @email, @mobilePhone, @homePhone, @parentName, @nic, @contactNo)";
 
             try
             {
                 SqlCommand cmd = DBConn.getCommand(query);
 
+                // Add parameters to the query
                 cmd.Parameters.AddWithValue("@firstName", firstName);
                 cmd.Parameters.AddWithValue("@lastName", lastName);
                 cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
                 cmd.Parameters.AddWithValue("@gender", gender);
                 cmd.Parameters.AddWithValue("@address", address);
                 cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@mobilePhone", int.Parse(mobilePhone));
-                cmd.Parameters.AddWithValue("@homePhone", int.Parse(homePhone));
+                cmd.Parameters.AddWithValue("@mobilePhone", mobilePhone);
+                cmd.Parameters.AddWithValue("@homePhone", homePhone);
                 cmd.Parameters.AddWithValue("@parentName", parentName);
                 cmd.Parameters.AddWithValue("@nic", nic);
-                cmd.Parameters.AddWithValue("@contactNo", int.Parse(contactNo));
+                cmd.Parameters.AddWithValue("@contactNo", contactNo);
 
+                // Execute the command
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show(
-                "Student Added Successfully",
-                "Register Student",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-                );
-
-                getAllData();
+                MessageBox.Show("Student Added Successfully", "Register Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInputs();
+                getAllData(); // Refresh the data
             }
             catch (SqlException sqlEx)
             {
-                MessageBox.Show(
-                    $"SQL Error: {sqlEx.Message}",
-                    "SQL Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show($"SQL Error: {sqlEx.Message}", "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"General Error: {ex.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show($"General Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
+
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -233,6 +259,31 @@ namespace Student_management.Forms
             parentName = txtParentName.Text;
             nic = txtNic.Text;
             contactNo = txtParentNumber.Text;
+
+
+            // Validate inputs
+            if (string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(address) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(mobilePhone) ||
+                string.IsNullOrWhiteSpace(gender) ||
+                string.IsNullOrWhiteSpace(parentName) ||
+                string.IsNullOrWhiteSpace(nic) ||
+                string.IsNullOrWhiteSpace(contactNo))
+            {
+                MessageBox.Show("Please fill out all fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                return;
+            }
+
+            // Validate phone numbers are numeric and valid length (e.g., 10 digits)
+            if (!IsValidPhoneNumber(mobilePhone) || !IsValidPhoneNumber(homePhone) || !IsValidPhoneNumber(contactNo))
+            {
+                MessageBox.Show("Please enter valid phone numbers.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
 
             string query = "UPDATE Registration " +
@@ -252,11 +303,11 @@ namespace Student_management.Forms
                 cmd.Parameters.AddWithValue("@gender", gender);
                 cmd.Parameters.AddWithValue("@address", address);
                 cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@mobilePhone", int.Parse(mobilePhone));
-                cmd.Parameters.AddWithValue("@homePhone", int.Parse(homePhone));
+                cmd.Parameters.AddWithValue("@mobilePhone", mobilePhone);
+                cmd.Parameters.AddWithValue("@homePhone", homePhone);
                 cmd.Parameters.AddWithValue("@parentName", parentName);
                 cmd.Parameters.AddWithValue("@nic", nic);
-                cmd.Parameters.AddWithValue("@contactNo", int.Parse(contactNo));
+                cmd.Parameters.AddWithValue("@contactNo", contactNo);
 
                 cmd.ExecuteNonQuery();
 
@@ -266,6 +317,7 @@ namespace Student_management.Forms
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Information
                    );
+                clearInputs();
 
                 getAllData();
 
@@ -306,7 +358,7 @@ namespace Student_management.Forms
 
             txtBirthOfDate.Value = DateTime.Now;
 
-            regNoLabel.Text = "0" + Convert.ToString(regNumberNew);
+            regNoLabel.Text = Convert.ToString(regNumberNew);
 
             radioFemale.Checked = false;
             radioMale.Checked = false;
@@ -327,18 +379,18 @@ namespace Student_management.Forms
 
                 regNoSelected = Convert.ToInt16(selectedItem.Text);
 
-                regNoLabel.Text = "0" + selectedItem.Text;
+                regNoLabel.Text = selectedItem.Text;
 
                 txtFirstName.Text = selectedItem.SubItems[1].Text;
                 txtLastName.Text = selectedItem.SubItems[2].Text;
                 txtBirthOfDate.Value = DateTime.Parse(selectedItem.SubItems[3].Text);
                 txtAddresses.Text = selectedItem.SubItems[5].Text;
                 txtEmail.Text = selectedItem.SubItems[6].Text;
-                txtMobile.Text = selectedItem.SubItems[7].Text;
-                txtHome.Text = selectedItem.SubItems[8].Text;
+                txtMobile.Text = "0" + selectedItem.SubItems[7].Text;
+                txtHome.Text = "0" + selectedItem.SubItems[8].Text;
                 txtParentName.Text = selectedItem.SubItems[9].Text;
                 txtNic.Text = selectedItem.SubItems[10].Text;
-                txtParentNumber.Text = selectedItem.SubItems[11].Text;
+                txtParentNumber.Text = "0" + selectedItem.SubItems[11].Text;
 
                 if ("Male".Equals(selectedItem.SubItems[4].Text))
                 {
@@ -355,6 +407,74 @@ namespace Student_management.Forms
         {
             ManageTeachers manageTeachers = new ManageTeachers();
             manageTeachers.Show();
+
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ManageAdmin admin = new ManageAdmin();
+            admin.Show();
+        }
+
+        private void btnManageTeachers_Click_1(object sender, EventArgs e)
+        {
+            ManageTeachers admin = new ManageTeachers();
+            admin.Show();
+        }
+
+        //This is the function to refresh form
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            getAllData();
+            clearInputs();
+        }
+
+
+        //check mobile numbers can only have 10 numbers
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            return phoneNumber.Length == 10 && phoneNumber.All(char.IsDigit);
+        }
+
+
+
+
+        //Functions for handle mobile numbers can input only numbers
+
+        //handle mobile number text field can get numbers only
+        private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Disallow the character
+            }
+        }
+
+        //handle Home number text field can get numbers only
+        private void txtHome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Disallow the character
+            }
+        }
+
+        //handle  parent mobile number text field can get numbers only
+        private void txtParentNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Disallow the character
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

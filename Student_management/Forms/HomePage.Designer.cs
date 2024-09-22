@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             panel1 = new Panel();
+            btnManageTeachers = new Button();
             btnLogout = new Button();
             button1 = new Button();
             label1 = new Label();
+            btnRefresh = new Button();
             panel3 = new Panel();
+            label15 = new Label();
             listView = new ListView();
             regNoCol = new ColumnHeader();
             firstNameCol = new ColumnHeader();
@@ -93,24 +97,37 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
             panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(btnManageTeachers);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1882, 55);
+            panel1.Size = new Size(1582, 55);
             panel1.TabIndex = 1;
+            // 
+            // btnManageTeachers
+            // 
+            btnManageTeachers.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnManageTeachers.Location = new Point(1284, 10);
+            btnManageTeachers.Name = "btnManageTeachers";
+            btnManageTeachers.Size = new Size(140, 35);
+            btnManageTeachers.TabIndex = 5;
+            btnManageTeachers.Text = "Manage Teachers";
+            btnManageTeachers.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnManageTeachers.UseVisualStyleBackColor = true;
+            btnManageTeachers.Click += btnManageTeachers_Click_1;
             // 
             // btnLogout
             // 
             btnLogout.AutoSize = true;
             btnLogout.ForeColor = Color.FromArgb(192, 0, 0);
-            btnLogout.Location = new Point(11, 12);
+            btnLogout.Location = new Point(11, 10);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(94, 40);
+            btnLogout.Size = new Size(100, 35);
             btnLogout.TabIndex = 4;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -119,47 +136,76 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(1730, 12);
+            button1.Location = new Point(1430, 10);
             button1.Name = "button1";
-            button1.Size = new Size(139, 29);
+            button1.Size = new Size(140, 35);
             button1.TabIndex = 3;
             button1.Text = "Manage Admins";
             button1.TextImageRelation = TextImageRelation.TextBeforeImage;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.BackColor = Color.DodgerBlue;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Arial", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1882, 55);
+            label1.Size = new Size(1582, 55);
             label1.TabIndex = 2;
             label1.Text = "Student Management System";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.Gray;
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(914, 16);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(100, 35);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(btnRefresh);
+            panel3.Controls.Add(label15);
             panel3.Controls.Add(listView);
-            panel3.Location = new Point(549, 54);
+            panel3.Location = new Point(556, 70);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1334, 1135);
+            panel3.Size = new Size(1023, 870);
             panel3.TabIndex = 4;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.FromArgb(64, 64, 64);
+            label15.Location = new Point(7, 16);
+            label15.Name = "label15";
+            label15.Size = new Size(177, 33);
+            label15.TabIndex = 5;
+            label15.Text = "All Students";
             // 
             // listView
             // 
-            listView.BackColor = Color.Gainsboro;
+            listView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listView.BackColor = SystemColors.ControlLight;
             listView.Columns.AddRange(new ColumnHeader[] { regNoCol, firstNameCol, lastNameCol, dateOfBirthCol, genderCol, addressCol, emailCol, mobilePhoneCol, homePhoneCol, parentNameCol, nicCol, contactNoCol });
             listView.FullRowSelect = true;
             listView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listView.Location = new Point(0, 0);
+            listView.Location = new Point(7, 61);
             listView.Name = "listView";
-            listView.Scrollable = false;
-            listView.Size = new Size(1450, 993);
+            listView.Size = new Size(1007, 809);
             listView.TabIndex = 0;
             listView.TabStop = false;
             listView.UseCompatibleStateImageBehavior = false;
@@ -230,9 +276,9 @@
             // 
             btnRegister.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             btnRegister.ForeColor = Color.Black;
-            btnRegister.Location = new Point(11, 845);
+            btnRegister.Location = new Point(23, 776);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(101, 29);
+            btnRegister.Size = new Size(100, 35);
             btnRegister.TabIndex = 0;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -241,9 +287,9 @@
             // btnUpdate
             // 
             btnUpdate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnUpdate.Location = new Point(123, 845);
+            btnUpdate.Location = new Point(126, 776);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(101, 29);
+            btnUpdate.Size = new Size(100, 35);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -253,9 +299,9 @@
             // 
             btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClear.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnClear.Location = new Point(318, 845);
+            btnClear.Location = new Point(287, 776);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(101, 29);
+            btnClear.Size = new Size(100, 35);
             btnClear.TabIndex = 2;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
@@ -265,9 +311,9 @@
             // 
             btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnDelete.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnDelete.Location = new Point(432, 845);
+            btnDelete.Location = new Point(393, 776);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(101, 29);
+            btnDelete.Size = new Size(100, 35);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -275,16 +321,15 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel2.BackColor = Color.Silver;
+            panel2.BackgroundImageLayout = ImageLayout.Center;
+            panel2.BorderStyle = BorderStyle.Fixed3D;
             panel2.Controls.Add(regNoLabel);
-            panel2.Controls.Add(btnDelete);
-            panel2.Controls.Add(btnClear);
-            panel2.Controls.Add(btnUpdate);
-            panel2.Controls.Add(btnRegister);
             panel2.Controls.Add(groupBox1);
-            panel2.Location = new Point(0, 54);
+            panel2.Location = new Point(10, 70);
             panel2.Name = "panel2";
-            panel2.Size = new Size(550, 993);
+            panel2.Size = new Size(540, 870);
             panel2.TabIndex = 3;
             // 
             // regNoLabel
@@ -300,13 +345,17 @@
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnClear);
             groupBox1.Controls.Add(groupBox3);
+            groupBox1.Controls.Add(btnUpdate);
             groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(btnRegister);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(11, 25);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(520, 777);
+            groupBox1.Size = new Size(506, 821);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Student Registration";
@@ -335,6 +384,7 @@
             txtParentNumber.Name = "txtParentNumber";
             txtParentNumber.Size = new Size(267, 27);
             txtParentNumber.TabIndex = 12;
+            txtParentNumber.KeyPress += txtParentNumber_KeyPress;
             // 
             // label14
             // 
@@ -427,6 +477,7 @@
             txtHome.Name = "txtHome";
             txtHome.Size = new Size(267, 27);
             txtHome.TabIndex = 10;
+            txtHome.KeyPress += txtHome_KeyPress;
             // 
             // label8
             // 
@@ -446,6 +497,7 @@
             txtMobile.Name = "txtMobile";
             txtMobile.Size = new Size(267, 27);
             txtMobile.TabIndex = 8;
+            txtMobile.KeyPress += txtMobile_KeyPress;
             // 
             // label7
             // 
@@ -629,17 +681,21 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1385, 875);
+            ClientSize = new Size(1582, 953);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            MinimizeBox = false;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(1920, 1080);
+            MinimumSize = new Size(1600, 1000);
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomePage";
+            Load += HomePage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -710,6 +766,8 @@
         private ColumnHeader nicCol;
         private ColumnHeader contactNoCol;
         private Label regNoLabel;
-
+        private Label label15;
+        private Button btnManageTeachers;
+        private Button btnRefresh;
     }
 }

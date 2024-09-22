@@ -13,6 +13,14 @@ namespace Student_management.Forms
 {
     public partial class ManageAdmin : Form
     {
+
+        int adminIdNew { get; set; }
+        int adminIdSelected { get; set; }
+
+        int adminId { get; set; }
+
+        SqlDataReader reader { get; set; }
+
         public ManageAdmin()
         {
             InitializeComponent();
@@ -31,45 +39,57 @@ namespace Student_management.Forms
         // Load admins into the DataGridView when the form loads
         private void ManageAdmin_Load(object sender, EventArgs e)
         {
-            LoadAdmins();
+            getAllData();
         }
 
         // Method to load all admins from the database into the DataGridView
-        private void LoadAdmins()
+        private void getAllData()
         {
-            try
-            {
-                string query = "SELECT * FROM Admins";
-                SqlCommand cmd = DBConn.getCommand(query);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
 
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    adminDataTable.DataSource = dt;
-                }
-                else
-                {
-                    MessageBox.Show("No admin data found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
+
+            string query = "SELECT * FROM Admins";
+
+
+            SqlCommand cmd = DBConn.getCommand(query);
+
+            reader = cmd.ExecuteReader();
+
+            listView.Items.Clear();
+
+            while (reader.Read())
             {
-                MessageBox.Show("Error loading admins: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                ListViewItem item = new ListViewItem(reader["userId"].ToString());
+
+                item.SubItems.Add(reader["firstName"].ToString());
+                item.SubItems.Add(reader["lastName"].ToString());
+                item.SubItems.Add(reader["username"].ToString());
+                item.SubItems.Add(reader["password"].ToString());
+
+
+                listView.Items.Add(item);
+
+                adminIdNew = (int)reader["userId"] + 1;
+
             }
+
+            lblAdminId.Text = Convert.ToString(adminIdNew);
         }
 
-
-
-        private void btnClear_Click(object sender, EventArgs e)
+        private void clearData()
         {
-            txtAdminId.Clear();
             txtFirstName.Clear();
             txtlastName.Clear();
             txtUserName.Clear();
             txtPassword.Clear();
             txtPassword.Clear();
+            lblAdminId.Text = Convert.ToString(adminIdNew);
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearData();
 
         }
 
@@ -77,7 +97,6 @@ namespace Student_management.Forms
         private void btnRegisterAdmin_Click(object sender, EventArgs e)
         {
 
-            string adminId = txtAdminId.Text;
             string firstName = txtFirstName.Text;
             string lastName = txtlastName.Text;
             string userName = txtUserName.Text;
@@ -116,7 +135,9 @@ namespace Student_management.Forms
                        MessageBoxIcon.Information
                         );
 
-                    LoadAdmins();
+                    getAllData();
+                    clearData();
+
 
                 }
                 catch (Exception ex)
@@ -129,7 +150,6 @@ namespace Student_management.Forms
 
         private void btnUpdateAdmin_Click(object sender, EventArgs e)
         {
-            string adminId = txtAdminId.Text;
             string firstName = txtFirstName.Text;
             string lastName = txtlastName.Text;
             string userName = txtUserName.Text;
@@ -152,9 +172,9 @@ namespace Student_management.Forms
                 {
 
 
-                    string query = "UPDATE Admins SET firstName = @firstName, lastName = @lastName, userName = @userName, password = @password WHERE userId = @adminId";
+                    string query = "UPDATE Admins SET firstName = @firstName, lastName = @lastName, userName = @userName, password = @password WHERE userId = @adminIdSelected";
                     SqlCommand cmd = DBConn.getCommand(query);
-                    cmd.Parameters.AddWithValue("@adminId", adminId);
+                    cmd.Parameters.AddWithValue("@adminIdSelected", adminIdSelected);
                     cmd.Parameters.AddWithValue("@firstName", firstName);
                     cmd.Parameters.AddWithValue("@lastName", lastName);
                     cmd.Parameters.AddWithValue("@userName", userName);
@@ -162,7 +182,8 @@ namespace Student_management.Forms
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Admin Updated Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadAdmins();
+                    getAllData();
+                    clearData();
 
 
                 }
@@ -189,13 +210,14 @@ namespace Student_management.Forms
             {
                 try
                 {
-                    string query = "DELETE FROM Admins WHERE userId = @adminId";
+                    string query = "DELETE FROM Admins WHERE userId = @adminIdSelected";
                     SqlCommand cmd = DBConn.getCommand(query);
-                    cmd.Parameters.AddWithValue("@adminId", txtAdminId.Text);
+                    cmd.Parameters.AddWithValue("@adminIdSelected", adminIdSelected);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Admin Deleted Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadAdmins();
+                    getAllData();
+                    clearData();
 
                 }
                 catch (Exception ex)
@@ -214,31 +236,32 @@ namespace Student_management.Forms
 
         }
 
-
-
-        private void adminDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (listView.SelectedItems.Count > 0)
             {
-                // Ensure the row clicked is valid
-                if (e.RowIndex >= 0)
-                {
-                    // Get the selected row
-                    DataGridViewRow row = adminDataTable.Rows[e.RowIndex];
+                ListViewItem selectedItem = listView.SelectedItems[0];
 
-                    // Set values from the selected row into the text fields
-                    txtAdminId.Text = row.Cells["userId"].Value.ToString() ;
-                    txtFirstName.Text = row.Cells["firstName"].Value.ToString();
-                    txtlastName.Text = row.Cells["lastName"].Value.ToString();
-                    txtUserName.Text = row.Cells["userName"].Value.ToString();
-                    txtPassword.Text = row.Cells["password"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error selecting admin data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                adminIdSelected = Convert.ToInt16(selectedItem.Text);
+
+                lblAdminId.Text = selectedItem.Text;
+
+                txtFirstName.Text = selectedItem.SubItems[1].Text;
+                txtlastName.Text = selectedItem.SubItems[2].Text;
+                txtUserName.Text = selectedItem.SubItems[3].Text;
+                txtPassword.Text = selectedItem.SubItems[4].Text;
+
+
+
             }
         }
 
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            getAllData();
+            clearData() ;
+
+        }
     }
 }

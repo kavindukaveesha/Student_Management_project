@@ -45,10 +45,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.download__10__removebg_preview;
-            pictureBox1.Location = new Point(121, 16);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(138, 21);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(175, 94);
+            pictureBox1.Size = new Size(200, 125);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -57,9 +56,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(58, 124);
+            label1.Location = new Point(66, 165);
             label1.Name = "label1";
-            label1.Size = new Size(280, 35);
+            label1.Size = new Size(348, 44);
             label1.TabIndex = 1;
             label1.Text = "Skills International";
             label1.Click += label1_Click;
@@ -73,22 +72,20 @@
             groupBox1.Controls.Add(txtUsername);
             groupBox1.Controls.Add(Username);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(58, 172);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(66, 229);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(312, 150);
+            groupBox1.Size = new Size(357, 200);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Login";
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.Gray;
-            btnLogin.Location = new Point(199, 109);
-            btnLogin.Margin = new Padding(3, 2, 3, 2);
+            btnLogin.BackColor = Color.DarkGray;
+            btnLogin.BackgroundImageLayout = ImageLayout.Center;
+            btnLogin.Location = new Point(227, 145);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(88, 30);
+            btnLogin.Size = new Size(101, 40);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -96,11 +93,11 @@
             // 
             // btnClear
             // 
-            btnClear.BackColor = Color.Gray;
-            btnClear.Location = new Point(20, 109);
-            btnClear.Margin = new Padding(3, 2, 3, 2);
+            btnClear.BackColor = Color.DarkGray;
+            btnClear.BackgroundImageLayout = ImageLayout.Center;
+            btnClear.Location = new Point(23, 145);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(88, 30);
+            btnClear.Size = new Size(101, 40);
             btnClear.TabIndex = 3;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -108,51 +105,48 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(116, 73);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Location = new Point(133, 97);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(176, 26);
+            txtPassword.Size = new Size(201, 30);
             txtPassword.TabIndex = 3;
             txtPassword.TextChanged += textBox2_TextChanged;
             // 
             // Password
             // 
             Password.AutoSize = true;
-            Password.Location = new Point(20, 75);
+            Password.Location = new Point(23, 100);
             Password.Name = "Password";
-            Password.Size = new Size(68, 19);
+            Password.Size = new Size(82, 23);
             Password.TabIndex = 2;
             Password.Text = "Password";
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(116, 39);
-            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Location = new Point(133, 52);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(176, 26);
+            txtUsername.Size = new Size(201, 30);
             txtUsername.TabIndex = 1;
             txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // Username
             // 
             Username.AutoSize = true;
-            Username.Location = new Point(20, 41);
+            Username.Location = new Point(23, 55);
             Username.Name = "Username";
-            Username.Size = new Size(69, 19);
+            Username.Size = new Size(85, 23);
             Username.TabIndex = 0;
             Username.Text = "username";
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(422, 340);
+            ClientSize = new Size(482, 453);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Login";

@@ -43,8 +43,8 @@ namespace Student_management.Forms
             }
             else
             {
-                //string loginQuery = "SELECT userId FROM Admins WHERE userName = @username AND password = @password";  // Kavindu
-                string loginQuery = "SELECT useId FROM Logins WHERE useName = @username AND password = @password";    // Prasad
+                string loginQuery = "SELECT userId FROM Admins WHERE userName = @username AND password = @password";  // Kavindu
+               // string loginQuery = "SELECT useId FROM Logins WHERE useName = @username AND password = @password";    // Prasad
 
 
                 try

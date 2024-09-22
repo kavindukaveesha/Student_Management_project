@@ -37,8 +37,8 @@
             btnDelete = new Button();
             btnRegisterAdmin = new Button();
             groupBox3 = new GroupBox();
-            txtAdminId = new TextBox();
-            adminId = new Label();
+            lblId = new Label();
+            lblAdminId = new Label();
             txtPassword = new TextBox();
             password = new Label();
             txtUserName = new TextBox();
@@ -47,12 +47,18 @@
             Lastname = new Label();
             txtFirstName = new TextBox();
             firstName = new Label();
-            adminDataTable = new DataGridView();
             panel3 = new Panel();
+            btnRefresh = new Button();
+            label15 = new Label();
+            listView = new ListView();
+            AdminNo = new ColumnHeader();
+            Admin_First_name = new ColumnHeader();
+            Admin_Last_Name = new ColumnHeader();
+            Admin_username = new ColumnHeader();
+            Admin_Password = new ColumnHeader();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)adminDataTable).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,9 +93,9 @@
             panel2.Controls.Add(btnDelete);
             panel2.Controls.Add(btnRegisterAdmin);
             panel2.Controls.Add(groupBox3);
-            panel2.Location = new Point(0, 38);
+            panel2.Location = new Point(10, 55);
             panel2.Name = "panel2";
-            panel2.Size = new Size(320, 516);
+            panel2.Size = new Size(320, 486);
             panel2.TabIndex = 1;
             // 
             // btnClear
@@ -142,8 +148,8 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(txtAdminId);
-            groupBox3.Controls.Add(adminId);
+            groupBox3.Controls.Add(lblId);
+            groupBox3.Controls.Add(lblAdminId);
             groupBox3.Controls.Add(txtPassword);
             groupBox3.Controls.Add(password);
             groupBox3.Controls.Add(txtUserName);
@@ -152,6 +158,7 @@
             groupBox3.Controls.Add(Lastname);
             groupBox3.Controls.Add(txtFirstName);
             groupBox3.Controls.Add(firstName);
+            groupBox3.Font = new Font("Arial", 10.2F, FontStyle.Bold);
             groupBox3.Location = new Point(12, 24);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(296, 278);
@@ -159,24 +166,27 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Admin Details";
             // 
-            // txtAdminId
+            // lblId
             // 
-            txtAdminId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtAdminId.Location = new Point(125, 49);
-            txtAdminId.Name = "txtAdminId";
-            txtAdminId.Size = new Size(153, 27);
-            txtAdminId.TabIndex = 14;
+            lblId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblId.AutoSize = true;
+            lblId.Font = new Font("Arial", 10.2F, FontStyle.Bold);
+            lblId.ForeColor = Color.FromArgb(64, 64, 64);
+            lblId.Location = new Point(16, 52);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(79, 19);
+            lblId.TabIndex = 15;
+            lblId.Text = "Admin ID";
             // 
-            // adminId
+            // lblAdminId
             // 
-            adminId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            adminId.AutoSize = true;
-            adminId.ForeColor = Color.FromArgb(64, 64, 64);
-            adminId.Location = new Point(16, 52);
-            adminId.Name = "adminId";
-            adminId.Size = new Size(72, 20);
-            adminId.TabIndex = 13;
-            adminId.Text = "Admin ID";
+            lblAdminId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblAdminId.AutoSize = true;
+            lblAdminId.ForeColor = Color.FromArgb(64, 64, 64);
+            lblAdminId.Location = new Point(125, 52);
+            lblAdminId.Name = "lblAdminId";
+            lblAdminId.Size = new Size(0, 19);
+            lblAdminId.TabIndex = 14;
             // 
             // txtPassword
             // 
@@ -190,10 +200,11 @@
             // 
             password.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             password.AutoSize = true;
+            password.Font = new Font("Arial", 10.2F, FontStyle.Bold);
             password.ForeColor = Color.FromArgb(64, 64, 64);
             password.Location = new Point(16, 224);
             password.Name = "password";
-            password.Size = new Size(70, 20);
+            password.Size = new Size(87, 19);
             password.TabIndex = 11;
             password.Text = "Password";
             // 
@@ -209,10 +220,11 @@
             // 
             userName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             userName.AutoSize = true;
+            userName.Font = new Font("Arial", 10.2F, FontStyle.Bold);
             userName.ForeColor = Color.FromArgb(64, 64, 64);
             userName.Location = new Point(16, 180);
             userName.Name = "userName";
-            userName.Size = new Size(82, 20);
+            userName.Size = new Size(95, 19);
             userName.TabIndex = 9;
             userName.Text = "User Name";
             // 
@@ -228,10 +240,11 @@
             // 
             Lastname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Lastname.AutoSize = true;
+            Lastname.Font = new Font("Arial", 10.2F, FontStyle.Bold);
             Lastname.ForeColor = Color.FromArgb(64, 64, 64);
             Lastname.Location = new Point(16, 138);
             Lastname.Name = "Lastname";
-            Lastname.Size = new Size(79, 20);
+            Lastname.Size = new Size(92, 19);
             Lastname.TabIndex = 7;
             Lastname.Text = "Last Name";
             // 
@@ -247,32 +260,89 @@
             // 
             firstName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             firstName.AutoSize = true;
+            firstName.Font = new Font("Arial", 10.2F, FontStyle.Bold);
             firstName.ForeColor = Color.FromArgb(64, 64, 64);
             firstName.Location = new Point(16, 94);
             firstName.Name = "firstName";
-            firstName.Size = new Size(80, 20);
+            firstName.Size = new Size(94, 19);
             firstName.TabIndex = 3;
             firstName.Text = "First Name";
             // 
-            // adminDataTable
-            // 
-            adminDataTable.BackgroundColor = SystemColors.ButtonFace;
-            adminDataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            adminDataTable.GridColor = SystemColors.InactiveCaption;
-            adminDataTable.Location = new Point(3, 33);
-            adminDataTable.Name = "adminDataTable";
-            adminDataTable.RowHeadersWidth = 51;
-            adminDataTable.Size = new Size(642, 466);
-            adminDataTable.TabIndex = 0;
-            adminDataTable.CellContentClick += adminDataTable_CellContentClick;
-            // 
             // panel3
             // 
-            panel3.Controls.Add(adminDataTable);
-            panel3.Location = new Point(325, 42);
+            panel3.Controls.Add(btnRefresh);
+            panel3.Controls.Add(label15);
+            panel3.Controls.Add(listView);
+            panel3.Location = new Point(336, 55);
             panel3.Name = "panel3";
-            panel3.Size = new Size(655, 503);
+            panel3.Size = new Size(634, 486);
             panel3.TabIndex = 2;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.Gray;
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(531, 0);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(100, 35);
+            btnRefresh.TabIndex = 8;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.FromArgb(64, 64, 64);
+            label15.Location = new Point(3, 2);
+            label15.Name = "label15";
+            label15.Size = new Size(159, 33);
+            label15.TabIndex = 7;
+            label15.Text = "All Admins";
+            // 
+            // listView
+            // 
+            listView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listView.BackColor = SystemColors.ControlLight;
+            listView.Columns.AddRange(new ColumnHeader[] { AdminNo, Admin_First_name, Admin_Last_Name, Admin_username, Admin_Password });
+            listView.FullRowSelect = true;
+            listView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listView.Location = new Point(3, 41);
+            listView.Name = "listView";
+            listView.Size = new Size(630, 442);
+            listView.TabIndex = 1;
+            listView.TabStop = false;
+            listView.UseCompatibleStateImageBehavior = false;
+            listView.View = View.Details;
+            listView.SelectedIndexChanged += listView_SelectedIndexChanged;
+            // 
+            // AdminNo
+            // 
+            AdminNo.Text = "RegNo";
+            AdminNo.Width = 80;
+            // 
+            // Admin_First_name
+            // 
+            Admin_First_name.Text = "First Name";
+            Admin_First_name.Width = 135;
+            // 
+            // Admin_Last_Name
+            // 
+            Admin_Last_Name.Text = "Last Name";
+            Admin_Last_Name.Width = 135;
+            // 
+            // Admin_username
+            // 
+            Admin_username.Text = "Username";
+            Admin_username.Width = 140;
+            // 
+            // Admin_Password
+            // 
+            Admin_Password.Text = "Password";
+            Admin_Password.Width = 135;
             // 
             // ManageAdmin
             // 
@@ -292,8 +362,8 @@
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)adminDataTable).EndInit();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -311,13 +381,21 @@
         private Label userName;
         private TextBox txtlastName;
         private Label Lastname;
-        private TextBox txtAdminId;
-        private Label adminId;
+       // private Label adminId;
         private Button btnClear;
         private Button btnUpdateAdmin;
         private Button btnDelete;
         private Button btnRegisterAdmin;
-        private DataGridView adminDataTable;
         private Panel panel3;
+        private ListView listView;
+        private ColumnHeader AdminNo;
+        private ColumnHeader Admin_First_name;
+        private ColumnHeader Admin_Last_Name;
+        private ColumnHeader Admin_username;
+        private ColumnHeader Admin_Password;
+        private Button btnRefresh;
+        private Label label15;
+        private Label lblAdminId;
+        private Label lblId;
     }
 }

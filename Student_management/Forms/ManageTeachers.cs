@@ -110,6 +110,8 @@ namespace Student_management.Forms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+
+                return;
             }
 
             // Validate phone numbers are numeric and valid length (e.g., 10 digits)
@@ -175,6 +177,7 @@ namespace Student_management.Forms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+                return;
             }
 
             // Validate phone numbers are numeric and valid length (e.g., 10 digits)

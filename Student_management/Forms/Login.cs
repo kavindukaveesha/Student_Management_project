@@ -96,15 +96,16 @@ namespace Student_management.Forms
                 {
                     if (loginsuccess)
                     {
-                        // Hide the current form (LoginForm)
-                        this.Hide();
-
+                       
                         MessageBox.Show(
                             "Login Success!",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information
                         );
+                        // Hide the current form (LoginForm)
+                        this.Hide();
+
 
                         // Open the HomePage form
                         HomePage homePage = new HomePage();

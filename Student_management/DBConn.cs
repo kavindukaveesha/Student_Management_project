@@ -9,9 +9,7 @@ namespace Student_management
 {
     public class DBConn
     {
-        static string connectionString = "Data Source=Kavindu\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True;";   // Kavindu
-                                                                                                                                 // static string connectionString = "Data Source=Revision-PC\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True;"; // Prasad
-
+        static string connectionString = "Data Source=Kavindu\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True;";
         static public SqlCommand getCommand(string query)
         {
             SqlConnection con = new SqlConnection(connectionString);

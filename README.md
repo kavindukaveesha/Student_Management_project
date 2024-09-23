@@ -17,7 +17,6 @@ This is a C# Windows Form Application built with .NET and MySQL for managing stu
 * Open the solution in Visual Studio.
 * Restore NuGet packages and build the solution.
 * Set up MySQL database with the provided SQL scripts.
-* ##
 ## Setup Database
 ### Connection String
 * static string connectionString = "Data Source=Kavindu\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True;";
@@ -47,6 +46,66 @@ This is a C# Windows Form Application built with .NET and MySQL for managing stu
  
   4. Login Success
      *  ![Login_Success](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Login/Login_Success.png)
+  
+### Manage Students(Registration,Update,Delete,Show all)
+* Admin can Register a new student, update, delete, and view all students list.
+  1. Home Page(Student_Management) Form
+     *  ![Homepage_Form](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Mobile_Number_Validate.png)
+  
+  2. Important inputs should be not null
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Inputs_Validate_Error_Message.png)
+
+  3. Mobile Number should have 10 digits
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Mobile_Number_Validate.png)
+
+  4. Successfully Register a Student
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Student_Registered_Successfully.png)
+    
+  5. Successfully Update a Student
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Update_Student_Successfully.png)
+    
+  6. Ask to delete a Student
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Ask_Before_Delete_Student.png)
+    
+  7. Successfully Delete a Student
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Home_Page/Successfull_Deleted_Student.png)
+
+### Manage Admis(Registration,Update,Delete,Show all)
+* Admin can add a new admin, update, delete, and view all admin lists.
+    
+  1. Admin_management Form
+     *  ![Homepage_Form](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Manage_Admins_Form.png)
+  
+  2. Important inputs should be not null
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Inputs_Validate.png)
+
+  3. Username validate(Username Unique)
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Username_Validate.png)
+
+  4. Successfully add an Admin
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Succesfully_Added_Admin.png)
+    
+  5. Successfully Update an Admin
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Succesfully_Update_Admin.png)
+    
+  6. Ask to delete an Admin
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Ask_Before_Delete_admin.png)
+    
+  7. Successfully Delete an Admin
+     *  ![Check_Inputs](https://github.com/kavindukaveesha/Student_Management_project/blob/main/Image_Video_Resource/Manage_Admins/Succesfully_Deleted_Admin.png)
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+ 
+  
   
 
 

@@ -22,7 +22,7 @@ This is a **C# Windows Form Application** built with **.NET** and **MySQL** for 
 ## 📥 **Installation**
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repository/student-management-system.git
+    git clone https://github.com/kavindukaveesha/Student_Management_project.git
     ```
 2. **Open the Solution**:
    - Open the project solution in **Visual Studio**.

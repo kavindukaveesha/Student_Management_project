@@ -143,5 +143,6 @@ This is a **C# Windows Form Application** built with **.NET** and **MySQL** for 
 ---
 
 ## 👨‍💻 **Developers**
-- **Kavindu Kaveesha**
-- **Prasad Prasanna**
+- [**Kavindu Kaveesha**](https://github.com/kavindukaveesha)
+- [**Prasad Prasanna**](https://github.com/PrasaKV)
+
